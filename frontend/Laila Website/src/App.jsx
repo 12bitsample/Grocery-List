@@ -1,8 +1,8 @@
 import './App.css'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import Register from './pages/Register'
-import Login from './pages/Login'
+import Navbar from './components/Navbar.jsx'
+import Home from './pages/Home.jsx'
+import Register from './pages/Register.jsx'
+import Login from './pages/Login.jsx'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -12,11 +12,11 @@ function App() {
     <>
       
     <Navbar />
-    {/* <Routes>
+    <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
-    </Routes> */}
+    </Routes>
 
     </>
     
