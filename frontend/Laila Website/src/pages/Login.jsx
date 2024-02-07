@@ -1,19 +1,24 @@
-import React from 'react'
+import { useState } from 'react';
 
 export default function Login() {
 
+  const [data,setData] = useState({
+    email: '',
+    password: '',
+  })
+
   const loginUser = (e) => {
-    e.preventDefault()
-    alert("login firing!")
+    e.preventDefault();
+    alert("login firing!");
   }
 
   return (
     <>
       <form onSubmit={loginUser}>
         <label>Login</label>
-        <input type="text"placeholder= "Provide name" />
-        <input type="email"placeholder="Provide email" />
-        <input type="password"placeholder="Provide password" />
+      
+        <input type="email"placeholder="Enter email" />
+        <input type="password"placeholder="Enter password" />
         <button type="submit">Login</button>
 
       </form>
