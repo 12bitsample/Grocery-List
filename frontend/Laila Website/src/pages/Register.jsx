@@ -4,13 +4,14 @@ export default function Register() {
 
 
   const [data, setData] = useState({
-    name: ' ',
-    email: ' ',
-    password: ' ',
+    name: '',
+    email: '',
+    password: '',
   });
 
+  //handle input change
   const handleChange = (e) => 
-    setData(prevState => ({prevState, [e.target.name]: e.target.value }))
+    setData(prevState => ({prevState, [e.target.name]: e.target.value }));
 
 
 
@@ -23,8 +24,8 @@ export default function Register() {
       <form onSubmit={registerUser}>
         <label>Register</label>
         <input type="text" placeholder= "Enter name" value={data.name} onChange={handleChange}/>
-        <input type="email" placeholder="Enter email" value={data.email} onChange={(e) => setData({...data, email: e.target.value})}/>
-        <input type="password" placeholder="Enter password"value={data.password}onChange={(e) => setData({...data, password: e.target.value})}/>
+        <input type="email" placeholder="Enter email" value={data.email} onChange={handleChange}/>
+        <input type="password" placeholder="Enter password"value={data.password}onChange={handleChange}/>
         <button type="submit">Submit</button>
 
       </form>

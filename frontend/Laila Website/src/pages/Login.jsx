@@ -3,9 +3,12 @@ import { useState } from 'react';
 export default function Login() {
 
   const [data, setData] = useState({
-    email: ' ',
-    password: ' ',
+    email: '',
+    password: '',
   })
+
+  //handle input change
+  const handleChange = (e) => setData(prevState => ({prevState, [e.target.name]: e.target.value }));
 
   const loginUser = (e) => {
     e.preventDefault();
