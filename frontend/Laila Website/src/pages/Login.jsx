@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function Login() {
 
@@ -10,9 +11,10 @@ export default function Login() {
   //handle input change
   const handleChange = (e) => setData(prevState => ({prevState, [e.target.name]: e.target.value }));
 
+  //login user
   const loginUser = (e) => {
     e.preventDefault();
-    alert("login firing!");
+    axios.get('/');
   }
 
   return (
