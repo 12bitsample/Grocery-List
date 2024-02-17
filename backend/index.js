@@ -6,13 +6,16 @@ import express from 'express';
 import routes from './routes/authRoutes.js'
 import mongoose from 'mongoose';
 
+const app = express();
+
 
 //db connection
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Database connected!'))
 .catch((err) => console.log('Database not connected!', err));
 
-const app = express();
+//middleware
+app.use(express.json());
 
 app.use('/', routes)
 
