@@ -1,7 +1,9 @@
 import User from '../models/user.js';
 
 const test = (req,res) => {
-    res.json('test is working amigos!')
+    res.json('test is working amigos!');
+    
+    return alert('hey ther!')
 }
 
 const registerUser = async (req, res) => {
@@ -18,17 +20,23 @@ const registerUser = async (req, res) => {
                     return res.json({
                         error: 'Password is required and must be at least 6 characters in length.'
                     })
-            }
-            //check email
+            };
+            //check if email exists
             const exists = await User.findOne({email});
             if(exists) {
                 return res.json({
-                    error: 'Email already in use.'
+                    error: 'Sorry, this email is already in use!'
                 })
-            }
+            };
+
+            const user = await User.create({
+                name, email, password,
+            })
+
+            return res.json(user);
     
         } catch (error) {
-
+            console.log(error);
     }
 };
  
