@@ -13,41 +13,50 @@ export default function Register() {
     email: '',
     password: '',
   });
+  
 
   //handle input change
-  // const handleChange = (e) => 
-  //   setData(prevState => ({prevState, [e.target.name]: e.target.value }));
-
   const handleChange = (e) => {
     const { name, value } = e.target;
+  
+    // Update state based on input name
+    setData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+  
 
-    //update state depending on input name
-    switch (name) {
-      case 'name': 
-      setData(prevState => ({
-        ...prevState,
-        name: value
-      }));
-      break;
-      case 'email': 
-      setData(prevState => ({
-        ...prevState,
-        email: value
-      }));
-      break;
-      case 'password': 
-      setData(prevState => ({
-        ...prevState,
-        password: value
-      }));
-      break;
-      default: 
-      break;
-
-    }
+  //   const handleChange = (e) => {
+  //     const { name, value } = e.target;
+  
+  //     //update state depending on input name
+  //     switch (name) {
+  //       case 'name': 
+  //       setData(prevState => ({
+  //         ...prevState,
+  //         name: value
+  //       }));
+  //       break;
+  //       case 'email': 
+  //       setData(prevState => ({
+  //         ...prevState,
+  //         email: value
+  //       }));
+  //       break;
+  //       case 'password': 
+  //       setData(prevState => ({
+  //         ...prevState,
+  //         password: value
+  //       }));
+  //       break;
+  //       default: 
+  //       break;
+  
+  //     }
 
     
-  };
+  // };
 
 
 
@@ -61,6 +70,7 @@ export default function Register() {
         })
         if(response.data.error) {
           toast.error(response.data.error);
+          console.log(response.data.error);
         } else {
           setData({
             name: '',
@@ -79,9 +89,10 @@ export default function Register() {
     <>
       <form onSubmit={registerUser}>
         <label>Register</label>
+
         <input type='text' placeholder= 'Enter name' value={data.name} onChange={handleChange} name='name' />
         <input type='email' placeholder='Enter email' value={data.email} onChange={handleChange} name='email' />
-        <input type='password' placeholder='Enter password' value={data.password}onChange={handleChange} name='password' />
+        <input type='password' placeholder='Enter password' value={data.password} onChange={handleChange} name='password' />
         <button type='submit'>Submit</button>
 
       </form>
