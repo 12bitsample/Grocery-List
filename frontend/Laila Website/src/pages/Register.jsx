@@ -7,12 +7,12 @@ export default function Register() {
 
 
   const navigate = useNavigate();
-  const toast = Toast();
   const [data, setData] = useState({
     name: '',
     email: '',
     password: '',
   });
+  
   
 
   //handle input change
@@ -25,44 +25,13 @@ export default function Register() {
       [name]: value
     }));
   };
-  
-
-  //   const handleChange = (e) => {
-  //     const { name, value } = e.target;
-  
-  //     //update state depending on input name
-  //     switch (name) {
-  //       case 'name': 
-  //       setData(prevState => ({
-  //         ...prevState,
-  //         name: value
-  //       }));
-  //       break;
-  //       case 'email': 
-  //       setData(prevState => ({
-  //         ...prevState,
-  //         email: value
-  //       }));
-  //       break;
-  //       case 'password': 
-  //       setData(prevState => ({
-  //         ...prevState,
-  //         password: value
-  //       }));
-  //       break;
-  //       default: 
-  //       break;
-  
-  //     }
-
-    
-  // };
-
 
 
   const registerUser = async (e) => {
       e.preventDefault();
+      
       const { name, email, password } = data;
+      const toast = Toast();
 
       try{
         const response = await axios.post('/register', {
@@ -85,6 +54,8 @@ export default function Register() {
       }
   }
 
+  
+  
   return (
     <>
       <form onSubmit={registerUser}>
@@ -94,6 +65,10 @@ export default function Register() {
         <input type='email' placeholder='Enter email' value={data.email} onChange={handleChange} name='email' />
         <input type='password' placeholder='Enter password' value={data.password} onChange={handleChange} name='password' />
         <button type='submit'>Submit</button>
+
+        {/* <button onClick={notify}>Let me eat toast.</button> */}
+
+
 
       </form>
     </>
