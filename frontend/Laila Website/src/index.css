@@ -66,3 +66,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* customizations */
+body {
+  background-color: lemonchiffon;
+}
+
+div#root {
+  outline: 5px solid green;
+}

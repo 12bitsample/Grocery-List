@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import Toast from 'react-hot-toast'; 
+import toast from 'react-hot-toast'; 
 import { useNavigate } from 'react-router-dom'; 
 
 export default function Register() {
@@ -26,12 +26,14 @@ export default function Register() {
     }));
   };
 
+  // let toast = toast();
 
   const registerUser = async (e) => {
       e.preventDefault();
       
       const { name, email, password } = data;
-      const toast = Toast();
+      let toast = toast();
+      
 
       try{
         const response = await axios.post('/register', {
@@ -39,7 +41,6 @@ export default function Register() {
         })
         if(response.data.error) {
           toast.error(response.data.error);
-          console.log(response.data.error);
         } else {
           setData({
             name: '',
