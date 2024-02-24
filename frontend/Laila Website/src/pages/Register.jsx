@@ -26,14 +26,10 @@ export default function Register() {
     }));
   };
 
-  // let toast = toast();
-
   const registerUser = async (e) => {
       e.preventDefault();
       
       const { name, email, password } = data;
-      let toast = toast();
-      
 
       try{
         const response = await axios.post('/register', {
