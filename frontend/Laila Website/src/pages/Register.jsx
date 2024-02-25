@@ -55,19 +55,20 @@ export default function Register() {
   
   return (
     <>
-      <form onSubmit={registerUser}>
-        <label>Register</label>
 
-        <input type='text' placeholder= 'Enter name' value={data.name} onChange={handleChange} name='name' />
-        <input type='email' placeholder='Enter email' value={data.email} onChange={handleChange} name='email' />
-        <input type='password' placeholder='Enter password' value={data.password} onChange={handleChange} name='password' />
-        <button type='submit'>Submit</button>
+      <div className='container'>
+        <form onSubmit={registerUser}>
+          <label>Register</label>
 
-        {/* <button onClick={notify}>Let me eat toast.</button> */}
+          <input type='text' placeholder= 'Enter name' value={data.name} onChange={handleChange} name='name' />
+          <input type='email' placeholder='Enter email' value={data.email} onChange={handleChange} name='email' />
+          <input type='password' placeholder='Enter password' value={data.password} onChange={handleChange} name='password' />
+          <button type='submit'>Submit</button>
 
+        </form>
 
+      </div>
 
-      </form>
     </>
   )
 }

@@ -68,10 +68,35 @@ button:focus-visible {
 }
 
 /* customizations */
+
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
 body {
   background-color: lemonchiffon;
+
+}
+
+html, body, div#root {
+  height: 100%
 }
 
 div#root {
-  outline: 5px solid green;
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  
 }
+
+.container {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+}
+
+
+

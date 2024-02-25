@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 
+
 const Navbar = () => {
 
     return (
-        <nav>
+        <nav className='position-initial w-100 bg-success'>
             <Link to="/">Home</Link>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
