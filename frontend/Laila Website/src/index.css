@@ -91,12 +91,21 @@ div#root {
   
 }
 
-.container {
+.container-fluid {
   display: flex; 
   flex-direction: row;
   justify-content: center; 
   align-items: center; 
+  height: 100vh;
+ 
   
+}
+
+.form-vertical-center {
+  display: flex;
+  flex-direction: column;
+ 
+  outline: red 4px solid;
 }
 
 
