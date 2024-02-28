@@ -58,7 +58,7 @@ export default function Register() {
 
       <div className='container-fluid'>
 
-        <form onSubmit={registerUser} className='form-vertical-center'>
+        <form onSubmit={registerUser} className='form-vertical-center p-4 '>
           <label>Register</label>
 
           <input type='text' placeholder= 'Enter name' value={data.name} onChange={handleChange} name='name' />
