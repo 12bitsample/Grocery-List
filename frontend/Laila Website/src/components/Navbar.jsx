@@ -11,7 +11,7 @@ const Navbar = () => {
             
         // </nav>
 
-        <nav className='navbar navbar-expand-lg bg-success' data-bs-theme='dark'>
+        <nav className='navbar navbar-expand-sm bg-success' data-bs-theme='dark'>
         <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>

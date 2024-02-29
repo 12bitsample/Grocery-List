@@ -13193,3 +13193,19 @@ select.form-control[multiple] {
 .carousel-caption .h6 {
   color: inherit;
 }
+
+.form-vertical-center {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  outline: white dotted 5px;
+  
+}
+
+.container-fluid {
+  display: flex; 
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center; 
+  height:100vh;
+}

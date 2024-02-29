@@ -2,8 +2,6 @@ import User from '../models/user.js';
 
 const test = (req,res) => {
     res.json('test is working amigos!');
-    
-    return alert('hey ther!')
 }
 
 const registerUser = async (req, res) => {
