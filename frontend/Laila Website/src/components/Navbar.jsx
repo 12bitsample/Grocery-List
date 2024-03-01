@@ -11,10 +11,19 @@ const Navbar = () => {
             
         // </nav>
 
-        <nav className='navbar navbar-expand-sm bg-success' data-bs-theme='dark'>
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        <nav className='navbar navbar-expand-md bg-success' data-bs-theme='dark'>
+            <div className='d-flex justify-content-between w-100 py-3'>
+                <div>
+                    <Link className='px-2 fw-bold'>Laila's Site</Link>
+                </div>
+                
+                <div>
+                    <Link className='px-1' to="/">Home</Link>
+                    <Link className='px-1' to="/login">Login</Link>
+                    <Link className='px-1' to="/register">Register</Link>
+                </div>
+                
+            </div>
 
         </nav>
     )
