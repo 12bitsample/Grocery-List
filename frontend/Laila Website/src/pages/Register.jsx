@@ -56,7 +56,7 @@ export default function Register() {
   return (
     <>
 
-      <div className='container-fluid bg--bs-body-bg' data-bs-theme='dark'>
+      <div className='container-fluid bg--bs-body-bg' data-bs-theme='light'>
 
         <form onSubmit={registerUser} className='form-vertical-center p-4 bg-success'>
           <label className='pb-1 fw-bold'>Register</label>
@@ -64,7 +64,7 @@ export default function Register() {
           <input className='my-1' type='text' placeholder= 'Enter name' value={data.name} onChange={handleChange} name='name' />
           <input className='my-1' type='email' placeholder='Enter email' value={data.email} onChange={handleChange} name='email' />
           <input className='my-1' type='password' placeholder='Enter password' value={data.password} onChange={handleChange} name='password' />
-          <button type='submit'>Submit</button>
+          <button className='my-1' type='submit'>Submit</button>
 
         </form>
 
