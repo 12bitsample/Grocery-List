@@ -11,7 +11,7 @@ const Navbar = () => {
             
         // </nav>
 
-        <nav className='navbar navbar-expand-md bg-success' data-bs-theme='dark'>
+        <nav className='navbar-nav navbar-expand-xxl bg-success' data-bs-theme='dark'>
             <div className='d-flex justify-content-between w-100 py-3'>
                 <div>
                     <Link className='px-2 fw-bolder'>Laila's Site</Link>
