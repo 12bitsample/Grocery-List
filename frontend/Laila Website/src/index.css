@@ -205,11 +205,12 @@
 
 * {
   padding: 0 !important;
-  margin:0;
+  margin:0 !important;
 }
 
 div#root {
   height:100vh;
+  max-width: 100% !important;
 }
 
 body {
@@ -13208,4 +13209,6 @@ select.form-control[multiple] {
   justify-content: center; 
   align-items: center; 
   height:100vh;
+  /* padding:  0 !important; */
 }
+

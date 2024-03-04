@@ -56,7 +56,7 @@ export default function Register() {
   return (
     <>
 
-      <div className='container-fluid bg--bs-body-bg px-0 w-100' data-bs-theme='light'>
+      <div className='container-fluid' data-bs-theme='light'>
 
         <form onSubmit={registerUser} className='form-vertical-center p-4 bg-success'>
           <label className='pb-1 fw-bold'>Register</label>
