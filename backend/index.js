@@ -3,11 +3,11 @@ dotenv.config();
 
 import cors from 'cors';
 import express from 'express';
-import routes from './routes/authRoutes.js'
+import authRoutes from './routes/authRoutes.js';
 import mongoose from 'mongoose';
+import groceries from './routes/groceries.js';
 
 const app = express();
-
 
 //db connection
 mongoose.connect(process.env.MONGO_URI)
@@ -17,7 +17,9 @@ mongoose.connect(process.env.MONGO_URI)
 //middleware
 app.use(express.json());
 
-app.use('/', routes)
+//routes
+app.use('/', authRoutes);
+app.use(groceries);
 
 const port = 8000;
 app.listen(port, () => console.log(`Server is running on Port: ${port}`))
