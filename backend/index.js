@@ -5,7 +5,7 @@ import cors from 'cors';
 import express from 'express';
 import authRoutes from './routes/authRoutes.js';
 import mongoose from 'mongoose';
-import groceries from './routes/groceries.js';
+import groceriesRoutes from './routes/groceriesRoutes.js';
 
 const app = express();
 
@@ -17,9 +17,17 @@ mongoose.connect(process.env.MONGO_URI)
 //middleware
 app.use(express.json());
 
+app.use(
+    cors({
+        origin: 'http://localhost:5173',
+        credentials: true,
+        
+    })
+);
+
 //routes
 app.use('/', authRoutes);
-app.use(groceries);
+app.use('/api/groceries', groceriesRoutes);
 
-const port = 8000;
+const port = 4000;
 app.listen(port, () => console.log(`Server is running on Port: ${port}`))
