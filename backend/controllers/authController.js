@@ -37,9 +37,14 @@ const registerUser = async (req, res) => {
             console.log(error);
     }
 };
+
+const loginUser = async (req, res) => {
+
+}
  
 export {
     test,
     registerUser,
+    loginUser,
  }
 
