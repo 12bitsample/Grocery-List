@@ -4,7 +4,7 @@ import Home from './pages/Home.jsx';
 import Register from './pages/Register.jsx';
 import List from './pages/List.jsx';
 import Login from './pages/Login.jsx';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,12 +20,23 @@ function App() {
 
     <Navbar />
     <Toaster position='bottom-right' toastOptions={{duration: 4000}} />
-    <Routes>
+    
+      <div className="pages">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/list' element={<List />} />
+        </Routes>
+      </div>
+    
+    
+    {/* <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
       <Route path='/list' element={<List />} />
-    </Routes>
+    </Routes> */}
 
     </>
     
