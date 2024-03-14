@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export default function List() {
 
-    const [groceries, setGroceries] = useState();
+    const [groceries, setGroceries] = useState([]);
 
     useEffect(() => {
         const fetchGroceries = async () => {
@@ -10,7 +10,7 @@ export default function List() {
             const json = await response.json();
 
             if(response.ok) {
-
+                setGroceries(json);
             }
         }
         fetchGroceries();
@@ -18,46 +18,38 @@ export default function List() {
 
     return (
         <>
-        
-        {/* <div className="conatiner-fluid h-100">
-            <div className="row justify-content-center align-items-center h-100">
+            <div className="container-fluid">
+                <div className="row justify-content-center align-items-center h-100 w-75">
 
-                <ul className="list-group w-75">
-                <li className="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
-                    Cras justo odio
-                    <span className="badge bg-primary rounded-pill">14</span>
-                </li>
-                <li className="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-                    Dapibus ac facilisis in
-                    <span className="badge bg-primary rounded-pill">2</span>
-                </li>
-                <li className="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
-                    Morbi leo risus
-                    <span className="badge bg-primary rounded-pill">1</span>
-                </li><li className="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
-                    Cras justo odio
-                    <span className="badge bg-primary rounded-pill">5</span>
-                </li>
-                <li className="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
-                    Dapibus ac facilisis in
-                    <span className="badge bg-primary rounded-pill">4</span>
-                </li>
-                <li className="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">
-                    Morbi leo risus
-                    <span className="badge bg-primary rounded-pill">9</span>
-                </li>
-                <li className="list-group-item list-group-item-light d-flex justify-content-between align-items-center">
-                    Morbi leo risus
-                    <span className="badge bg-primary rounded-pill">8</span>
-                </li>
-                <li className="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
-                    Morbi leo risus
-                    <span className="badge bg-primary rounded-pill">0</span>
-                </li>
-                </ul>
-            
+                <div className="card border-success mb-3">
+                    <div className="card-header">Grocery List</div>
+                    <div className="card-body w-100 d-flex mx-auto justify-content-center">
+                        
+                    <ul className="list-group w-75">
+                        {groceries.map((grocery, index) => (
+                            <li key={grocery._id} className={`list-group-item d-flex justify-content-between align-items-center ${index % 2 === 0 ? 'list-group-item-success' : ''}`}>
+
+                                <span className="grocery">{grocery.item}</span>
+                                <span className="badge bg-primary rounded-pill"><button type="button" class="btn btn-success">Delete</button></span>
+                            </li>
+                        ))}
+                    </ul>
+
+
+                    </div>
+                </div>
+
+                    {/* <ul className="list-group w-75">
+                        {groceries.map((grocery, index) => (
+                            <li key={grocery._id} className={`list-group-item d-flex justify-content-between align-items-center ${index % 2 === 0 ? 'list-group-item-success' : ''}`}>
+
+                                <span className="grocery">{grocery.item}</span>
+                                <span className="badge bg-primary rounded-pill"></span>
+                            </li>
+                        ))}
+                    </ul> */}
+                </div>
             </div>
-        </div> */}
 
         </>
     )
