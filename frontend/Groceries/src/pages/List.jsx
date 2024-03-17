@@ -23,26 +23,21 @@ const List = () => {
 
                     <div className="card border-success mb-3">
                         <div className="card-header py-3"><h3>Grocery List</h3></div>
-                        <div className="card-body w-100 py-5 px-5 h-75 d-flex mx-auto justify-content-center">
+                        <div className="card-body w-100 py-5  h-75 d-flex mx-auto justify-content-center">
                             
                             <ul className="list-group w-75">
                                 {groceries.map((grocery, index) => (
-                                    <li key={grocery._id} className={`list-group-item d-flex p-2 justify-content-between align-items-center ${index % 2 === 0 ? 'list-group-item-success' : ''}`}>
+                                    <li key={grocery._id} className={`list-group-item d-flex p-2 w-100 justify-content-between align-items-center ${index % 2 === 0 ? 'list-group-item-success' : ''}`}>
 
                                         <span className="grocery">{grocery.item}</span>
-                                        <span className="badge bg-primary rounded-pill"><button type="button" className="btn btn-success">Delete</button></span>
+                                        <span className="badge bg-primary rounded-pill"><button type="button" className="btn btn-success p-1">Delete</button></span>
                                     </li>
                                 ))}
                             </ul>
-
-
                         </div>
                     </div>
-
-
                 </div>
             </div>
-
         </>
     )
 }
