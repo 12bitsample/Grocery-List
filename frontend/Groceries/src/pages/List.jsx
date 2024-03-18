@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ItemForm from '../components/ItemForm.jsx';
 
 const List = () => {
 
@@ -18,7 +19,7 @@ const List = () => {
 
     return (
         <>
-            <div className="container-fluid">
+            <div className="container-fluid d-flex row">
                 <div className="row justify-content-center align-items-center h-100 w-75">
 
                     <div className="card border-success mb-3">
@@ -36,8 +37,10 @@ const List = () => {
                             </ul>
                         </div>
                     </div>
+                    <ItemForm />  
                 </div>
             </div>
+          
         </>
     )
 }
