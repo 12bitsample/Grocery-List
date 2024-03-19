@@ -12,10 +12,15 @@ const app = express();
 //db connection
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Database connected!'))
-.catch((err) => console.log('Database not connected!', err));
+.catch((error) => console.log(error));
 
 //middleware
 app.use(express.json());
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
+
+})
 
 app.use(
     cors({
@@ -24,6 +29,8 @@ app.use(
         
     })
 );
+
+
 
 //routes
 app.use('/', authRoutes);

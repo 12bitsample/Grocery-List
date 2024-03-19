@@ -30,13 +30,6 @@ function App() {
         </Routes>
       </div>
     
-    
-    {/* <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/register' element={<Register />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/list' element={<List />} />
-    </Routes> */}
 
     </>
     

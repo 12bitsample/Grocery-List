@@ -5,7 +5,7 @@ const getGroceries = async (req, res) => {
     try {
         const items = await GroceriesModel.find();
         res.json(items);
-    } catch {
+    } catch (error) {
         res.status(400).json({ error: error.message });
     }
 }
