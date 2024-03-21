@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import ItemForm from '../components/ItemForm.jsx';
 import GroceryForm from '../components/GroceryForm.jsx';
 
 const List = () => {
@@ -17,6 +16,15 @@ const List = () => {
         }
         fetchGroceries();
     }, []);
+
+    const handleDeleteClick = async (grocery) => {
+        const response = await fetch('http://localhost:4000/api/groceries/' + grocery._id, {
+            method: "DELETE",
+
+        });
+
+        const json = await response.json();
+    }
 
     return (
         <>
@@ -42,7 +50,7 @@ const List = () => {
                                             <td>{grocery.amount}</td>
                                             <td>{grocery.item}</td>
                                             <td>
-                                                <button type="button" className="btn btn-success">
+                                                <button type="button" className="btn btn-success" onClick={() => handleDeleteClick(grocery)}>
                                                     Delete
                                                 </button>
                                             </td>

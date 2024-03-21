@@ -15,6 +15,8 @@ const GroceryForm = () => {
         // let {item, amount} = null;
 
         const groceries = { item, amount };
+
+        console.log(item, amount);
         
         const response = await fetch('http://localhost:4000/api/groceries/', {
             method: "POST",
@@ -44,18 +46,24 @@ const GroceryForm = () => {
                     <legend>Add Groceries</legend>
                     <div className="row justify-content-center w-50 pb-4">
                         
-                        {/* <label>Grocery Item</label>
-                        <input type='text' onChange={(e) => setItem(e.target.value)} value={item}/>
-                        
-                        <label >Amount</label>
-                        <input type='number' onChange={(e) => setAmount(e.target.value)} value={amount}/> */}
+                        <label className="col-form-label mt-4 form-control" htmlFor="item" >Grocery Item</label>
+                        <input 
+                            type="text" 
+                            name="item" 
+                            placeholder="Add grocery item here..."
+                            id="item"
+                            value={item}
+                            onChange={(e) => setItem(e.target.value)} 
+                        />
 
-                        
-                        <label className="col-form-label mt-4 form-control" onChange={(e) => setItem(e.target.value)} value={item} htmlFor="inputDefault">Grocery Item</label>
-                        <input type="text"  placeholder="Add grocery item here..." id="inputDefault"/>
-
-                        <label className="col-form-label mt-4 form-control" onChange={(e) => setAmount(e.target.value)} value={amount} htmlFor="inputDefault">Amount</label>
-                        <input type="number" placeholder="Amount here..." id="inputDefault"/>
+                        <label className="col-form-label mt-4 form-control" htmlFor="amount" value={amount}>Amount</label>
+                        <input 
+                            type="number" 
+                            name="amount" 
+                            placeholder="Amount here..." 
+                            id="amount"
+                            onChange={(e) => setAmount(e.target.value)}
+                        />
 
                     </div>
                     
