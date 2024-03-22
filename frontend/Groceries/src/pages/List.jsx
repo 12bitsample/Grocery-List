@@ -33,7 +33,7 @@ const List = () => {
 
                     <div className="card border-success mb-3">
                         <div className="card-header py-3"><h3>Grocery List</h3></div>
-                        <div className="card-body w-100 py-5  h-75 d-flex row mx-auto justify-content-center">
+                        <div className="card-body w-100 p-3  h-75 d-flex row mx-auto justify-content-center">
                             
                             <table className="table table-hover w-75">
                                 <thead>

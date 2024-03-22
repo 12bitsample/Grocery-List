@@ -1,4 +1,5 @@
 import GroceriesModel from "../models/groceriesModel.js";
+import mongoose from "mongoose";
 
 //get all groceries
 const getGroceries = async (req, res) => {
@@ -26,9 +27,9 @@ const addGroceryItem = async (req, res) => {
 //delete grocery item
 
 const deleteGroceryItem = async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params;  
 
-    if (!mongoose.Types.ObjectId(id)) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'Item can not be located.'});
     }
     
