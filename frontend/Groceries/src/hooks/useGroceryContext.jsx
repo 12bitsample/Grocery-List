@@ -1,4 +1,4 @@
-import { GroceriesContext } from "../context/GroceryContext";
+import { GroceriesContext } from "../context/GroceryContext.jsx";
 import { useContext } from "react";
 
 export const useGroceryContext = () => {

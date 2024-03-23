@@ -6,7 +6,7 @@ export const groceryReducer = (state, action) => {
     switch (action.type) {
         case 'SET_GROCERIES':
             return {
-                groceries: action.payload,
+                groceries: action.payload
             }
             case 'ADD_GROCERY':
                 return {
@@ -21,6 +21,7 @@ export const GroceryContextProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(groceryReducer, {
         groceries: null,
+        
     });
 
     dispatch()

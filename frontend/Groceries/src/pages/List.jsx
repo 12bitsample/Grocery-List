@@ -1,17 +1,24 @@
 import { useEffect, useState } from 'react';
-import GroceryForm from '../components/GroceryForm.jsx';
+import GroceryForm  from '../components/GroceryForm.jsx';
+import { useGroceryContext } from '../hooks/useGroceryContext.jsx';
 
 const List = () => {
 
-    const [groceries, setGroceries] = useState([]);
+    // const [groceries, setGroceries] = useState([]);
+
+    const { groceries, dispatch } = useGroceryContext();
+    
 
     useEffect(() => {
         const fetchGroceries = async () => {
             const response = await fetch('http://localhost:4000/api/groceries/');
             const json = await response.json();
+            console.log(json);
 
             if(response.ok) {
-                setGroceries(json);
+                // setGroceries(json);
+                console.log(groceries);
+                dispatch({type: 'SET_GROCERIES', payload: json});
             }
         }
         fetchGroceries();
