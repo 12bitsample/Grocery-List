@@ -2,7 +2,14 @@ import { createContext, useReducer } from "react";
 
 export const GroceriesContext = createContext();
 
+const initialState = {
+    groceries: [],
+}
+
 export const groceryReducer = (state, action) => {
+
+    
+
     switch (action.type) {
         case 'SET_GROCERIES':
             return {
@@ -12,6 +19,10 @@ export const groceryReducer = (state, action) => {
                 return {
                     groceries: [action.payload, ...state.groceries]
                 }
+            case 'DELETE_GROCERY':
+                return {
+                    groceries: state.groceries.filter((g) => {g._id !== action.payload._id})
+                }
             default:
                 return state;
     }
@@ -19,12 +30,13 @@ export const groceryReducer = (state, action) => {
 
 export const GroceryContextProvider = ({children}) => {
 
-    const [state, dispatch] = useReducer(groceryReducer, {
-        groceries: null,
-        
-    });
+    const [state, dispatch] = useReducer(groceryReducer, initialState);
 
-    dispatch()
+    // const [state, dispatch] = useReducer(groceryReducer, {
+    //     groceries: null,
+        
+    // });
+
 
     return (
         <GroceriesContext.Provider value={{...state, dispatch}}>

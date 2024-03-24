@@ -7,6 +7,7 @@ const List = () => {
     // const [groceries, setGroceries] = useState([]);
 
     const { groceries, dispatch } = useGroceryContext();
+
     
 
     useEffect(() => {
@@ -17,12 +18,12 @@ const List = () => {
 
             if(response.ok) {
                 // setGroceries(json);
-                console.log(groceries);
+                
                 dispatch({type: 'SET_GROCERIES', payload: json});
             }
         }
         fetchGroceries();
-    }, []);
+    }, [dispatch]);
 
     const handleDeleteClick = async (grocery) => {
         const response = await fetch('http://localhost:4000/api/groceries/' + grocery._id, {
@@ -31,6 +32,11 @@ const List = () => {
         });
 
         const json = await response.json();
+
+        if(response.ok) {
+            dispatch({type: 'DELETE_GROCERY', payload: json});
+        }
+
     }
 
     return (

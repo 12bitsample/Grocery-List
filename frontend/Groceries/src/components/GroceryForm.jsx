@@ -1,18 +1,18 @@
 import { useState } from "react"
+import { GroceriesContext } from "../context/GroceryContext";
 import { addGroceryItem } from "../../../../backend/controllers/groceryController";
+import { useContext } from "react";
 
 
 const GroceryForm = () => {
-    // const dispatch = useState();
+    
     const [ item, setItem ] = useState('');
     const [ amount, setAmount ] = useState('');
-
     const [ error, setError ] = useState(null);
+    const { dispatch } = useContext(GroceriesContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // let {item, amount} = null;
 
         const groceries = { item, amount };
 
@@ -35,6 +35,7 @@ const GroceryForm = () => {
             setAmount('');
             setError(null);
             console.log('Groceries added: ', json);
+            dispatch({type: 'ADD_GROCERY', payload: json});
         }
     }
 
