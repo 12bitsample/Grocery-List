@@ -26,16 +26,28 @@ const List = () => {
     }, [dispatch]);
 
     const handleDeleteClick = async (grocery) => {
-        const response = await fetch('http://localhost:4000/api/groceries/' + grocery._id, {
+        try {
+            const response = await fetch('http://localhost:4000/api/groceries/' + grocery._id, {
             method: "DELETE",
 
-        });
+            });
 
-        const json = await response.json();
+            if (!response.ok) {
+                throw new Error('Failed to delete item!');
+            }
 
-        if(response.ok) {
-            dispatch({type: 'DELETE_GROCERY', payload: json});
+            dispatch({ type: 'DELETE_GROCERY', payload: grocery._id });
+            // handleDeleteClick();
+
+        } catch (error) {
+            console.error('Error deleting item:', error);
         }
+
+        // const json = await response.json();
+
+        // if(response.ok) {
+        //     dispatch({ type: 'DELETE_GROCERY', payload: grocery._id });
+        // }
 
     }
 

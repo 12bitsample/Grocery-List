@@ -21,7 +21,7 @@ export const groceryReducer = (state, action) => {
                 }
             case 'DELETE_GROCERY':
                 return {
-                    groceries: state.groceries.filter((g) => {g._id !== action.payload._id})
+                    groceries: state.groceries.filter(g => g._id !== action.payload)
                 }
             default:
                 return state;
