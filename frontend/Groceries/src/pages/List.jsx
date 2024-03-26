@@ -36,18 +36,12 @@ const List = () => {
                 throw new Error('Failed to delete item!');
             }
 
-            dispatch({ type: 'DELETE_GROCERY', payload: grocery._id });
+            await dispatch({ type: 'DELETE_GROCERY', payload: grocery._id });
             // handleDeleteClick();
 
         } catch (error) {
             console.error('Error deleting item:', error);
         }
-
-        // const json = await response.json();
-
-        // if(response.ok) {
-        //     dispatch({ type: 'DELETE_GROCERY', payload: grocery._id });
-        // }
 
     }
 
