@@ -13,7 +13,6 @@ const getGroceries = async (req, res) => {
 
 
 //add grocery item
-
 const addGroceryItem = async (req, res) => {
     const {item, amount} = req.body;
     
@@ -24,6 +23,7 @@ const addGroceryItem = async (req, res) => {
         res.status(400).json({error: error.message });
     }
 }
+
 //delete grocery item
 
 const deleteGroceryItem = async (req, res) => {

@@ -10,13 +10,14 @@ const GroceryForm = () => {
     const [ amount, setAmount ] = useState('');
     const [ error, setError ] = useState(null);
     const { dispatch } = useContext(GroceriesContext);
+    const [emptyFields, setEmptyFields] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const groceries = { item, amount };
 
-        console.log(item, amount);
+        
         
         const response = await fetch('http://localhost:4000/api/groceries/', {
             method: "POST",
@@ -27,13 +28,20 @@ const GroceryForm = () => {
         });
         const json = await response.json();
 
+        // if (response.body.amount)
+
         if(!response.ok) {
             setError(json.error);
         }
         if(response.ok) {
+            if (!groceries.amount) {
+                console.log('THAT SHIT IS NULL DUDE.')
+            }
+            
             setItem('');
             setAmount('');
             setError(null);
+            
             console.log('Groceries added: ', json);
             dispatch({type: 'ADD_GROCERY', payload: json});
         }
@@ -62,8 +70,10 @@ const GroceryForm = () => {
                             type="number" 
                             name="amount" 
                             placeholder="Amount here..." 
+                            value={amount}
                             id="amount"
                             onChange={(e) => setAmount(e.target.value)}
+                            
                         />
 
                     </div>
