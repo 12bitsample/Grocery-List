@@ -65,8 +65,8 @@ const List = () => {
                                 
                                 <tbody>
                                     {groceries.map((grocery, index) => (
-                                        <tr key={grocery._id} className={index % 2 === 0 ? 'table-success' : ''}>
-                                            <td>{grocery.amount}</td>
+                                        <tr key={grocery._id} className={index % 2 === 0 ? 'table-success' : ''} >
+                                            <td className='py-3'>{grocery.amount}</td>
                                             <td>{grocery.item}</td>
                                             <td>
                                                 <button type="button" className="btn btn-success" onClick={() => handleDeleteClick(grocery)}>
