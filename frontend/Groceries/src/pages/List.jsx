@@ -37,8 +37,7 @@ const List = () => {
             }
 
             await dispatch({ type: 'DELETE_GROCERY', payload: grocery._id });
-            // handleDeleteClick();
-
+          
         } catch (error) {
             console.error('Error deleting item:', error);
         }
@@ -48,7 +47,7 @@ const List = () => {
     return (
         <>
             <div className="container-fluid d-flex row">
-                <div className="row justify-content-center align-items-center h-100 w-75">
+                <div className="row justify-content-center pt-3 align-items-center w-75">
 
                     <div className="card border-success mb-3">
                         <div className="card-header py-3"><h3>Grocery List</h3></div>
