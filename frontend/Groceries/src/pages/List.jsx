@@ -4,8 +4,6 @@ import { useGroceryContext } from '../hooks/useGroceryContext.jsx';
 
 const List = () => {
 
-    // const [groceries, setGroceries] = useState([]);
-
     const { groceries, dispatch } = useGroceryContext();
 
     
@@ -17,8 +15,6 @@ const List = () => {
             console.log(json);
 
             if(response.ok) {
-                // setGroceries(json);
-                
                 dispatch({type: 'SET_GROCERIES', payload: json});
             }
         }
