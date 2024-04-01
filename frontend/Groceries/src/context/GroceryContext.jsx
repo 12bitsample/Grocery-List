@@ -32,12 +32,6 @@ export const GroceryContextProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(groceryReducer, initialState);
 
-    // const [state, dispatch] = useReducer(groceryReducer, {
-    //     groceries: null,
-        
-    // });
-
-
     return (
         <GroceriesContext.Provider value={{...state, dispatch}}>
             { children }
