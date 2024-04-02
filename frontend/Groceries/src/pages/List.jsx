@@ -39,7 +39,7 @@ const List = () => {
         }
 
     }
-
+    
     return (
         <>
             <div className="container-fluid d-flex row">
