@@ -17,8 +17,6 @@ const GroceryForm = () => {
 
         const groceries = { item, amount };
 
-        
-        
         const response = await fetch('http://localhost:4000/api/groceries/', {
             method: "POST",
             body: JSON.stringify(groceries),
@@ -31,17 +29,21 @@ const GroceryForm = () => {
 
 
         if(!response.ok) {
+            const json = await response.json();
             setError(json.error);
         }
         if(response.ok) {
             if (!groceries.amount) {
-                console.log('THAT SHIT IS NULL DUDE.')
+               return setError('You must enter an amount value for item.');
+            } 
+            if (!isNaN(groceries.item)) {
+                return setError('Item can not be a number value.');
             }
             
             setItem('');
             setAmount('');
             setError(null);
-            
+
             console.log('Groceries added: ', json);
             dispatch({type: 'ADD_GROCERY', payload: json});
         }
@@ -51,7 +53,7 @@ const GroceryForm = () => {
             <>
             
             <div className="card border-success mb-3">
-                <form onSubmit={handleSubmit} className=" d-flex flex-column align-items-center flex-wrap create py-4" >
+                <form onSubmit={handleSubmit} className=" d-flex flex-column align-items-center flex-wrap create m-4 py-4" >
                     <legend className="fw-bold"><h3>Add Groceries</h3></legend>
                     <div className="row justify-content-center w-50 pb-4 ">
                         
@@ -79,7 +81,8 @@ const GroceryForm = () => {
                     </div>
                     
                     <button type="submit"  className="btn btn-success w-50">Add Grocery Item</button>
-                    {error && <div className="error">{error}</div>}
+                    {error && <div className="error text-danger">{error}</div>}
+                    {/* <div className=""></div> */}
                 </form>
 
             </div>
