@@ -18,5 +18,4 @@ router.post('/register', registerUser);
 //login user
 router.post('/login', loginUser);
 
-
 export {router as default};
