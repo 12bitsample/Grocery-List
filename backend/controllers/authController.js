@@ -1,8 +1,5 @@
-import User from '../models/user.js';
+import User from '../models/userModel.js';
 
-const test = (req,res) => {
-    res.json('test is working amigos!');
-}
 
 const registerUser = async (req, res) => {
     try {
@@ -43,7 +40,6 @@ const loginUser = async (req, res) => {
 }
  
 export {
-    test,
     registerUser,
     loginUser,
  }
