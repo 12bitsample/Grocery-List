@@ -13212,3 +13212,10 @@ select.form-control[multiple] {
   /* padding:  0 !important; */
 }
 
+.dohgie-bg {
+  background-image: url("../public/images/maizykubes.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+   /* Adjust height as needed */
+}
