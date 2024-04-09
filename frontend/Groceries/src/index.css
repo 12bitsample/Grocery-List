@@ -13208,14 +13208,16 @@ select.form-control[multiple] {
   flex-direction: row;
   justify-content: center; 
   align-items: center; 
-  height:100vh;
+  height: 100vh;
   /* padding:  0 !important; */
+
 }
 
 .dohgie-bg {
   background-image: url("../public/images/maizykubes.jpg");
-  background-size: cover;
+  background-size:75%;
   background-position: center;
   background-repeat: no-repeat;
+  
    /* Adjust height as needed */
 }
