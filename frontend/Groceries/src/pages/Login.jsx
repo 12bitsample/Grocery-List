@@ -21,7 +21,7 @@ export default function Login() {
     <>
 
       <div className='container-fluid dohgie-bg' data-bs-theme='light'>
-        <form className='form-vertical-center p-3 bg-success' onSubmit={loginUser}>
+        <form className='form-vertical-center p-4 bg-success' onSubmit={loginUser}>
           
           <label className='pb-1 fw-bold text-light'>Login</label>
         

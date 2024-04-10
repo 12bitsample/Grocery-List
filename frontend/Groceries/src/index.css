@@ -13198,9 +13198,6 @@ select.form-control[multiple] {
 .form-vertical-center {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  outline: white dotted 5px;
-  
 }
 
 .container-fluid {
@@ -13214,7 +13211,7 @@ select.form-control[multiple] {
 }
 
 .dohgie-bg {
-  background-image: url("../public/images/maizykubes.jpg");
+  background-image: url("images/maizykubes.jpg");
   background-size:80%;
   background-position: center;
   background-repeat: no-repeat;
