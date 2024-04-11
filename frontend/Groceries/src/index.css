@@ -13202,7 +13202,7 @@ select.form-control[multiple] {
 
 .container-fluid {
   display: flex; 
-  flex-direction: row;
+  
   justify-content: center; 
   align-items: center; 
   height: 100vh;
@@ -13215,6 +13215,8 @@ select.form-control[multiple] {
   background-size:80%;
   background-position: center;
   background-repeat: no-repeat;
-  
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+
    /* Adjust height as needed */
 }
