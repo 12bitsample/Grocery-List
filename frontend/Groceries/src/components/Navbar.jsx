@@ -13,6 +13,7 @@ const Navbar = () => {
                 
                 <div className='px-2'>
                     <Link className='px-1 fw-bold link-light text-decoration-none' to="/">Home</Link>
+                    <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
                     <Link className='px-1 fw-bold link-light text-decoration-none' to="/login">Login</Link>
                     <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
                 </div>
