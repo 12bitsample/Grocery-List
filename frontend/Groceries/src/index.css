@@ -13211,12 +13211,27 @@ select.form-control[multiple] {
 }
 
 .dohgie-bg {
+  /* position: relative; */
   background-image: url("images/maizykubes.jpg");
   background-size:80%;
   background-position: center;
   background-repeat: no-repeat;
-  /* filter: blur(8px);
-  -webkit-filter: blur(8px);   */
+  height: 0;
+}
 
-   /* Adjust height as needed */
+.dohgie-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background-position: center;
+  background-image: inherit;
+  background-size: inherit;
+  /* background-position: inherit; */
+  background-repeat: inherit;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  z-index: -1;
 }
