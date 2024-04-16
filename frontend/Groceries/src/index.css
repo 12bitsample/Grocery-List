@@ -13214,24 +13214,63 @@ select.form-control[multiple] {
   /* position: relative; */
   background-image: url("images/maizykubes.jpg");
   background-size:80%;
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
   height: 0;
 }
 
-.dohgie-bg::after {
+.dohgie-bg::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 15%;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 90%;
   background-position: center;
   background-image: inherit;
-  background-size: inherit;
-  /* background-position: inherit; */
+  background-size: inherit; 
+  background-position: center;
   background-repeat: inherit;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  z-index: -1;
+}
+
+.background-gradient { 
+  position: relative;
+  background-image: linear-gradient(45deg,
+    hsl(109deg 100% 23%) 0%,
+    hsl(109deg 100% 22%) 21%,
+    hsl(109deg 99% 22%) 31%,
+    hsl(109deg 99% 21%) 39%,
+    hsl(109deg 98% 20%) 44%,
+    hsl(110deg 98% 20%) 50%,
+    hsl(110deg 98% 19%) 54%,
+    hsl(110deg 97% 19%) 58%,
+    hsl(110deg 97% 18%) 62%,
+    hsl(110deg 97% 18%) 65%,
+    hsl(110deg 96% 17%) 68%,
+    hsl(110deg 96% 17%) 71%,
+    hsl(110deg 96% 16%) 74%,
+    hsl(111deg 95% 16%) 77%,
+    hsl(111deg 95% 15%) 80%,
+    hsl(111deg 95% 15%) 83%,
+    hsl(111deg 95% 14%) 85%,
+    hsl(110deg 96% 14%) 89%,
+    hsl(110deg 97% 13%) 92%,
+    hsl(110deg 98% 12%) 96%,
+    hsl(109deg 100% 12%) 100%
+  )
+}
+
+.background-gradient::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  height: 110%;
+  width:108%;
+  border: 2px dotted white;
+  background-color: white;
   z-index: -1;
 }

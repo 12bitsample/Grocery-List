@@ -5,7 +5,7 @@ const Navbar = () => {
 
     return (
 
-        <nav className='navbar-nav navbar-expand-xxl bg-success' data-bs-theme='dark'>
+        <nav className='navbar-nav navbar-expand-xxl background-gradient' data-bs-theme='dark'>
             <div className='d-flex justify-content-between w-100 py-3'>
                 <div>
                     <Link className='px-2 fw-bolder link-light text-decoration-none' to='/'>Grocery List Deluxe</Link>
