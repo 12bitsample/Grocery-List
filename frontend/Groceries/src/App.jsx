@@ -23,14 +23,13 @@ function App() {
       
       <Layout>
         <div className="pages">
-            
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/register' element={<Register />} />
               <Route path='/login' element={<Login />} />
               <Route path='/list' element={<List />} />
             </Routes>
-          </div>
+        </div>
       </Layout>
       
     </>
