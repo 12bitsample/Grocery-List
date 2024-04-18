@@ -61,7 +61,7 @@ export default function Register() {
         <form onSubmit={registerUser} className='form-vertical-center p-4 rounded background-gradient'>
           <label className='pb-1 text-light fw-bold'>Register</label>
 
-          <input className='my-1' type='text' placeholder= 'Enter name' value={data.name} onChange={handleChange} name='name' />
+          {/* <input className='my-1' type='text' placeholder= 'Enter name' value={data.name} onChange={handleChange} name='name' /> */}
           <input className='my-1' type='email' placeholder='Enter email' value={data.email} onChange={handleChange} name='email' />
           <input className='my-1' type='password' placeholder='Enter password' value={data.password} onChange={handleChange} name='password' />
           <button className='my-1' type='submit'>Submit</button>
