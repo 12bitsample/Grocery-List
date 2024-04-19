@@ -5,7 +5,6 @@ import bcrypt from 'bcrypt';
 const {Schema} = mongoose;
 
 const userSchema = new Schema({
-    name: String,
     email: {
         type: String,
         required: true,
@@ -30,7 +29,7 @@ userSchema.statics.signup = async function (email, password) {
     const salt = await bcrypt.genSalt(10);
     //hash password
     const hash = await bcrypt.hash(password, salt);
-
+    //create
     const user = await this.create({ email, password: hash });
 
     return user;
