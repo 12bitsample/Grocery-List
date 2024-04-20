@@ -8,10 +8,10 @@ export default function Register() {
 
   const navigate = useNavigate();
   const [data, setData] = useState({
-    name: '',
     email: '',
     password: '',
   });
+  const [error, setError] = useState(null);
   
   
 
@@ -29,17 +29,16 @@ export default function Register() {
   const registerUser = async (e) => {
       e.preventDefault();
       
-      const { name, email, password } = data;
+      const { email, password } = data;
 
       try{
         const response = await axios.post('/register', {
-          name, email, password
+           email, password
         })
         if(response.data.error) {
           toast.error(response.data.error);
         } else {
           setData({
-            name: '',
             email: '',
             password: '',
           });
@@ -66,6 +65,7 @@ export default function Register() {
           <input className='my-1' type='password' placeholder='Enter password' value={data.password} onChange={handleChange} name='password' />
           <button className='my-1' type='submit'>Submit</button>
 
+          {error && <div className="error text-danger">{error}</div>}
         </form>
 
       </div>

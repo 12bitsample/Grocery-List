@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
+import validator from 'validator';
 
 
 const {Schema} = mongoose;
@@ -19,6 +20,11 @@ const userSchema = new Schema({
 //static signup method
 userSchema.statics.signup = async function (email, password) {
     
+    //validation
+    if (!email || password) {
+        throw Error('All fields must be filled out.')
+    }
+
     const exists = await this.findOne({ email });
 
     if (exists) {
