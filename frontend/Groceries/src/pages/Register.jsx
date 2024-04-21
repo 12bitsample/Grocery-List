@@ -31,18 +31,25 @@ export default function Register() {
       
       const { email, password } = data;
 
+      // Client-side validation
+      if (!email || !password) {
+        setError('All fields must be filled out.');
+        return; // Prevent form submission
+      }
+
       try{
         const response = await axios.post('/register', {
            email, password
         })
         if(response.data.error) {
           toast.error(response.data.error);
+          setError(response.data.error);
         } else {
           setData({
             email: '',
             password: '',
           });
-          toast.success('Login successful!')
+          toast.success('Registration successful!')
           navigate('/login')
         }
       } catch (error) {

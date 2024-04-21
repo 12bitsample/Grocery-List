@@ -21,14 +21,14 @@ const userSchema = new Schema({
 userSchema.statics.signup = async function (email, password) {
     
     //validation
-    if (!email || password) {
-        throw Error('All fields must be filled out.')
+    if (!email || !password) {
+        throw new Error('All fields must be filled out.');
     }
 
     const exists = await this.findOne({ email });
 
     if (exists) {
-        throw Error('Email already in use.');
+        throw new Error('Email already in use.');
     }
 
     //create salt
