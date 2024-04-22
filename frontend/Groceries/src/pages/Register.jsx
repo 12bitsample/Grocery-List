@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast'; 
 import { useNavigate } from 'react-router-dom'; 
+import validator from 'validator';
 
 export default function Register() {
 
@@ -33,9 +34,10 @@ export default function Register() {
 
       // Client-side validation
       if (!email || !password) {
-        setError('All fields must be filled out.');
+        setError('All fields must be filled out!');
         return; // Prevent form submission
       }
+      
 
       try{
         const response = await axios.post('/register', {

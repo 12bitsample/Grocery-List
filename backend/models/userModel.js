@@ -21,9 +21,15 @@ const userSchema = new Schema({
 userSchema.statics.signup = async function (email, password) {
     
     //validation
-    if (!email || !password) {
-        throw new Error('All fields must be filled out.');
-    }
+    // if (!email || !password) {
+    //     throw new Error('All fields must be filled out.');
+    // }
+    //check that email is email address
+    if (!validator.isEmail(email)) {
+        // setError('Email must be a valid email address.')
+        throw Error('Email must be a valid email address.');
+        return;
+      }
 
     const exists = await this.findOne({ email });
 
