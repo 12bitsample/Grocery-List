@@ -24,12 +24,13 @@ userSchema.statics.signup = async function (email, password) {
     // if (!email || !password) {
     //     throw new Error('All fields must be filled out.');
     // }
-    //check that email is email address
+
+    // check that email is email address
     if (!validator.isEmail(email)) {
-        // setError('Email must be a valid email address.')
+        setError('Email must be a valid email address.')
         throw Error('Email must be a valid email address.');
         return;
-      }
+    }
 
     const exists = await this.findOne({ email });
 

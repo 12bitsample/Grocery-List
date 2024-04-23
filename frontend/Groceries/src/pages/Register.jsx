@@ -32,12 +32,19 @@ export default function Register() {
       
       const { email, password } = data;
 
+      //check that email is email address
+      if (!validator.isEmail(email)) {
+        // setError('Email must be a valid email address.');
+        // throw Error('Email must be a valid email address.');
+        alert('That didnt work!')
+        return;
+      }
+
       // Client-side validation
       if (!email || !password) {
         setError('All fields must be filled out!');
         return; // Prevent form submission
       }
-      
 
       try{
         const response = await axios.post('/register', {
