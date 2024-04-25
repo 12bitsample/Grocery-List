@@ -5538,6 +5538,8 @@ textarea.form-control-lg {
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
+
+  padding: 25px;
 }
 
 .modal-dialog {

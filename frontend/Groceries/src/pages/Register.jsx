@@ -41,10 +41,9 @@ export default function Register() {
 
       //check that email is email address
       if (!validator.isEmail(email)) {
-        setError('Email must be a valid email address.');
-        // throw Error('Email must be a valid email address.');
-        // alert('That didnt work!');
-        // toast.error('You must provide a valid email address')
+        // setError('Email must be a valid email address.');
+        // // throw Error('Email must be a valid email address.');
+        toast.error('You must provide a valid email address')
         return;
       }
 
@@ -54,7 +53,7 @@ export default function Register() {
         })
         if(response.data.error) {
           toast.error(response.data.error);
-          setError(response.data.error);
+          // setError(response.data.error);
         } else {
           setData({
             email: '',
