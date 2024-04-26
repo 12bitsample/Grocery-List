@@ -1,4 +1,9 @@
 import User from '../models/userModel.js';
+import jwt from jwt;
+
+const createToken = (_id) => {
+  jwt.sign()
+}
 
 
 // const registerUser = async (req, res) => {
