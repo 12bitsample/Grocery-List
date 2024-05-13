@@ -12,6 +12,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </GroceryContextProvider>
     </Router>
-    
   </React.StrictMode>,
 )

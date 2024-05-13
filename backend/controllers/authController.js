@@ -1,8 +1,9 @@
 import User from '../models/userModel.js';
-import jwt from jwt;
+import jwt from 'jsonwebtoken';
+
 
 const createToken = (_id) => {
-  jwt.sign()
+  return jwt.sign({_id}, process.env.SECRET, { expiresIn: "2d" });
 }
 
 
@@ -44,11 +45,14 @@ const signupUser = async (req, res) => {
     const {email, password} = req.body
   
     try {
-      const user = await User.signup(email, password)
-  
-      res.status(200).json({email})
+      const user = await User.signup(email, password);
+
+      //create token
+      const token = createToken(user._id);
+
+      res.status(200).json({email, token});
     } catch (error) {
-      res.status(400).json({error: error.message})
+      res.status(400).json({error: error.message});
     }
   }
 
