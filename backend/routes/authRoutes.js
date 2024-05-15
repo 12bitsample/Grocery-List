@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-// import {registerUser, loginUser} from '../controllers/authController.js';
 import {signupUser, loginUser} from '../controllers/authController.js';
 
 const router = express.Router();
