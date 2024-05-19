@@ -51,6 +51,9 @@ export default function Register() {
         const response = await axios.post('/register', {
            email, password
         })
+
+        const json = await response.json();
+
         if(response.data.error) {
           toast.error(response.data.error);
           // setError(response.data.error);
@@ -59,6 +62,13 @@ export default function Register() {
             email: '',
             password: '',
           });
+          
+          //save user to local storage
+          localStorage.setItem('user', JSON.stringify(json));
+
+          //update auth context
+          dispatchEvent({type: 'LOGIN', payload: json});
+
           toast.success('Registration successful!')
           navigate('/login')
         }
@@ -67,8 +77,6 @@ export default function Register() {
       }
   }
 
-  
-  
   return (
     <>
 
