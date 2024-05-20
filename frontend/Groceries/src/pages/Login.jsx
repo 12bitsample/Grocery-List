@@ -19,20 +19,14 @@ export default function Login() {
 
   return (
     <>
-
       <div className='container-fluid' data-bs-theme='light'>
         <form className='form-vertical-center p-4 background-gradient rounded' onSubmit={loginUser}>
-          
           <label className='pb-1 fw-bold text-light'>Login</label>
-        
           <input className='my-1' type="email" placeholder="Enter email" value={data.email} onChange={(e) => setData({...data, email: e.target.value})}/>
           <input className='my-1' type="password"placeholder="Enter password"value={data.password}onChange={(e) => setData({...data, password: e.target.value})}/>
           <button className='my-1' type="submit">Login</button>
-
         </form>
       </div>
-
-      
-    </>
+   </>
   )
 }
