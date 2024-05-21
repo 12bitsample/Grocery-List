@@ -3,6 +3,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast'; 
 import { useNavigate } from 'react-router-dom'; 
 import validator from 'validator';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function Register() {
 
