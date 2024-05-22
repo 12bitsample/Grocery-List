@@ -3,10 +3,11 @@ import axios from 'axios';
 import toast from 'react-hot-toast'; 
 import { useNavigate } from 'react-router-dom'; 
 import validator from 'validator';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useAuthContext
+
+ } from '../hooks/useAuthContext';
 
 export default function Register() {
-
 
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -15,8 +16,6 @@ export default function Register() {
   });
   const [error, setError] = useState(null);
   
-  
-
   //handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,6 +75,8 @@ export default function Register() {
       } catch (error) {
         console.log(error);
       }
+
+      return {Register, error}
   }
 
   return (
