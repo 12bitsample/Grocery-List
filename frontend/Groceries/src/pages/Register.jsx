@@ -3,9 +3,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast'; 
 import { useNavigate } from 'react-router-dom'; 
 import validator from 'validator';
-import { useAuthContext
-
- } from '../hooks/useAuthContext';
+import { useAuthContext} from '../hooks/useAuthContext';
 
 export default function Register() {
 
@@ -76,7 +74,6 @@ export default function Register() {
         console.log(error);
       }
 
-      return {Register, error}
   }
 
   return (
