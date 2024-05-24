@@ -50,7 +50,7 @@ export default function Register() {
            email, password
         })
 
-        const json = await response.json();
+        const json = await response.data;
 
         if(response.data.error) {
           toast.error(response.data.error);
