@@ -30,6 +30,7 @@ export default function Register() {
       
       const { email, password } = data;
 
+      // console.log(email, password);
 
       // Client-side validation
       if (!email || !password) {
@@ -51,6 +52,8 @@ export default function Register() {
         })
 
         const json = await response.data;
+
+    
 
         if(response.data.error) {
           toast.error(response.data.error);
