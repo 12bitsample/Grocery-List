@@ -47,16 +47,22 @@ export default function Register() {
       }
 
       try{
-        const response = await axios.post('/register', {
-           email, password
+        // const response = await axios.post('/register', {
+        //    email, password,
+        //  })
+
+         const response = await fetch('/register', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ email, password })
         })
 
         const json = await response.data;
 
     
 
-        if(response.data.error) {
-          toast.error(response.data.error);
+        if(response.error) {
+          toast.error(response.error);
           // setError(response.data.error);
         } else {
           setData({
@@ -70,8 +76,8 @@ export default function Register() {
           //update auth context
           dispatchEvent({type: 'LOGIN', payload: json});
 
-          toast.success('Registration successful!')
-          navigate('/login')
+          toast.success('Registration successful!');
+          navigate('/login');
         }
       } catch (error) {
         console.log(error);
