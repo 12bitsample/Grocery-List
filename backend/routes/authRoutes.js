@@ -13,7 +13,6 @@ router.use(
 );
 
 //register user
-// router.post('/register', registerUser);
 router.post('/register', signupUser);
 //login user
 router.post('/login', loginUser);

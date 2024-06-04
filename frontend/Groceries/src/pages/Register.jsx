@@ -72,7 +72,7 @@ export default function Register() {
           localStorage.setItem('user', JSON.stringify(json));
 
           //update auth context
-          // dispatchEvent({type: 'LOGIN', payload: json});
+          dispatchEvent({type: 'LOGIN', payload: json});
 
           toast.success('Registration successful!');
           navigate('/login');
