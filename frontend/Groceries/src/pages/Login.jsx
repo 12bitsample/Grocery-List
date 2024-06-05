@@ -14,7 +14,8 @@ export default function Login() {
   //login user
   const loginUser = (e) => {
     e.preventDefault();
-    axios.get('/');
+    // axios.get('/');
+    alert('You have attempted to login.')
   }
 
   return (
