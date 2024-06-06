@@ -30,8 +30,6 @@ export default function Register() {
       
       const { email, password } = data;
 
-      // console.log(email, password);
-
       // Client-side validation
       if (!email || !password) {
         setError('All fields must be filled out!');
