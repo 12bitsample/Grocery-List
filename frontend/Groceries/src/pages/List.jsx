@@ -6,8 +6,6 @@ const List = () => {
 
     const { groceries, dispatch } = useGroceryContext();
 
-    
-
     useEffect(() => {
         const fetchGroceries = async () => {
             const response = await fetch('http://localhost:4000/api/groceries/');
