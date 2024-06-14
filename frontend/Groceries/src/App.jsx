@@ -20,7 +20,6 @@ function App() {
     <>
       <Navbar />
       <Toaster position='bottom-right' toastOptions={{duration: 4000}} />
-      
       <Layout>
         <div className="pages">
             <Routes>
@@ -31,7 +30,6 @@ function App() {
             </Routes>
         </div>
       </Layout>
-      
     </>
     
   )
