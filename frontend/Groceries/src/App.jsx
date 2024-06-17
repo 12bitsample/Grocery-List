@@ -16,7 +16,6 @@ axios.defaults.withCredentials = true;
 function App() {
 
   return (
-    
     <>
       <Navbar />
       <Toaster position='bottom-right' toastOptions={{duration: 4000}} />
