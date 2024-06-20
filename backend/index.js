@@ -19,9 +19,12 @@ app.use(express.json());
 app.use(
     cors({
         origin: 'http://localhost:5173/',
+        // origin: '*',
         credentials: true,
+        optionsSuccessStatus: 200,
 })
 );
+
 
 app.use((req, res, next) => {
     console.log(req.path, req.method);
@@ -30,7 +33,17 @@ app.use((req, res, next) => {
 
 //routes
 app.use('/', authRoutes);
-app.use('/api/groceries', groceriesRoutes);
+app.use('/api/groceries/', groceriesRoutes);
 
 const port = 4000;
 app.listen(port, () => console.log(`Server is running on Port: ${port}`))
+
+// app.get('/test-cors', (req, res) => {
+//     res.json({ message: 'CORS is working!' });
+//   });
+
+app.get('/api/some-endpoint', (req, res) => {
+    console.log('Request received:', req);
+    res.json({ message: 'Success' });
+  });
+  
