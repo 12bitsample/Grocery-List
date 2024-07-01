@@ -8,13 +8,14 @@ const List = () => {
 
     useEffect(() => {
         const fetchGroceries = async () => {
-            const response = await fetch('http://localhost:4000/api/groceries', {
+            const response = await fetch('http://localhost:4000/api/groceries/', {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include', // Include credentials in the request
             })
             .then(response => response.json())
             .then(data => console.log(data))
+            // debugger(),
             .catch(error => console.error('Error:', error));
 
             const json = await response.json();
