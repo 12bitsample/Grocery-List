@@ -20,10 +20,10 @@ const userSchema = new Schema({
 //static signup method
 userSchema.statics.signup = async function (email, password) {
     
-    //validation
-    // if (!email || !password) {
-    //     throw new Error('All fields must be filled out.');
-    // }
+    validation
+    if (!email || !password) {
+        throw new Error('All fields must be filled out.');
+    }
 
     // check that email is email address
     if (!validator.isEmail(email)) {
