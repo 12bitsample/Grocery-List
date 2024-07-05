@@ -9,11 +9,15 @@ import { AuthContextProvider } from './context/authContext.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
-      <AuthContextProvider>
+      {/* <AuthContextProvider>
         <GroceryContextProvider>
           <App />
         </GroceryContextProvider>
-      </AuthContextProvider>
+      </AuthContextProvider> */}
+    
+        <GroceryContextProvider>
+          <App />
+        </GroceryContextProvider>
     </Router>
   </React.StrictMode>,
 )
