@@ -15,11 +15,10 @@ const List = () => {
             })
             .then(response => response.json())
             .then(data => console.log(data))
-            // debugger(),
             .catch(error => console.error('Error:', error));
 
             const json = await response.json();
-            console.log(json);
+            // console.log(json);
 
             if(response.ok) {
                 dispatch({type: 'SET_GROCERIES', payload: json});
