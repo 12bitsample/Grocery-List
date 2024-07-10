@@ -8,22 +8,52 @@ const List = () => {
 
     useEffect(() => {
         const fetchGroceries = async () => {
-            const response = await fetch('http://localhost:4000/api/groceries/', {
-                method: 'GET',
-                headers: {'Content-Type': 'application/json'},
-                credentials: 'include', // Include credentials in the request
-            })
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error:', error));
 
-            const json = await response.json();
-            // console.log(json);
-
-            if(response.ok) {
-                dispatch({type: 'SET_GROCERIES', payload: json});
+            try {
+                const response = await fetch('http://localhost:4000/api/groceries/', {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'},
+                    credentials: 'include', // Include credentials in the request
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+    
+                const json = await response.json();
+                // console.log(json);
+    
+                if(!response.ok) {
+                    console.log("Response not okay.");
+                }
+    
+                if(response.ok) {
+                    dispatch({type: 'SET_GROCERIES', payload: json});
+                }
+ 
+            } catch (error) {
+                console.log('Error: ', error)
             }
         }
+        //     const response = await fetch('http://localhost:4000/api/groceries/', {
+        //         method: 'GET',
+        //         headers: {'Content-Type': 'application/json'},
+        //         credentials: 'include', // Include credentials in the request
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => console.log(data))
+        //     .catch(error => console.error('Error:', error));
+
+        //     const json = await response.json();
+        //     // console.log(json);
+
+        //     if(!response.ok) {
+        //         console.log("Response not okay.");
+        //     }
+
+        //     if(response.ok) {
+        //         dispatch({type: 'SET_GROCERIES', payload: json});
+        //     }
+        // }
         fetchGroceries();
     }, [dispatch]);
 
