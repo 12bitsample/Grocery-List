@@ -15,6 +15,9 @@ const List = () => {
                     headers: {'Content-Type': 'application/json'},
                     credentials: 'include', // Include credentials in the request
                 })
+
+                console.log('Here is the fetch response: ', response)
+
                 .then(response => response.json())
                 .then(data => console.log(data))
                 .catch(error => console.error('Error:', error));
@@ -23,7 +26,8 @@ const List = () => {
                 // console.log(json);
     
                 if(!response.ok) {
-                    console.log("Response not okay.");
+                    console.error('Network response was not ok:', response.statusText);
+                    throw new Error('Network response was not ok');
                 }
     
                 if(response.ok) {
