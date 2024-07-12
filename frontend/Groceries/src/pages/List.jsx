@@ -17,13 +17,8 @@ const List = () => {
                 })
 
                 console.log('Here is the fetch response: ', response)
-
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .catch(error => console.error('Error:', error));
     
                 const json = await response.json();
-                // console.log(json);
     
                 if(!response.ok) {
                     console.error('Network response was not ok:', response.statusText);
@@ -38,26 +33,6 @@ const List = () => {
                 console.log('Error: ', error)
             }
         }
-        //     const response = await fetch('http://localhost:4000/api/groceries/', {
-        //         method: 'GET',
-        //         headers: {'Content-Type': 'application/json'},
-        //         credentials: 'include', // Include credentials in the request
-        //     })
-        //     .then(response => response.json())
-        //     .then(data => console.log(data))
-        //     .catch(error => console.error('Error:', error));
-
-        //     const json = await response.json();
-        //     // console.log(json);
-
-        //     if(!response.ok) {
-        //         console.log("Response not okay.");
-        //     }
-
-        //     if(response.ok) {
-        //         dispatch({type: 'SET_GROCERIES', payload: json});
-        //     }
-        // }
         fetchGroceries();
     }, [dispatch]);
 
