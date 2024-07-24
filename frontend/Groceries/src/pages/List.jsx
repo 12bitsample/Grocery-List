@@ -16,7 +16,7 @@ const List = () => {
                     credentials: 'include', // Include credentials in the request
                 })
 
-                console.log('Here is the fetch response: ', response)
+                // console.log('Here is the fetch response: ', response)
     
                 const json = await response.json();
     

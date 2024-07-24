@@ -35,13 +35,12 @@
 // }
 
 import { useState } from 'react';
-import axios from 'axios';
 import { useLogin } from '../hooks/useLogin';
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const {login, error, isLoading} = useLogin()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const {login, error, isLoading} = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -55,11 +54,12 @@ const Login = () => {
         <form className='form-vertical-center p-4       background-gradient rounded' onSubmit={handleSubmit}>
           <label className='pb-1 fw-bold text-light'>Login</label>
 
-        //still need to change onChange function and check rest of form
+          <input className='my-1' type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail( e.target.value)}/>
 
-          <input className='my-1' type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail({...data, email: e.target.value})}/>
-          <input className='my-1' type="password"placeholder="Enter password"value={password}onChange={(e) => setPassword({...data, password: e.target.value})}/>
+          <input className='my-1' type="password"placeholder="Enter password"value={password} onChange={(e) => setPassword(e.target.value)}/>
+
           <button disabled={isLoading} className='my-1' type="submit">Login</button>
+          {error && <div className='error'>{error}</div>}
         </form>
       </div>
    </>
