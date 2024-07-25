@@ -53,11 +53,8 @@ const Login = () => {
       <div className='container-fluid' data-bs-theme='light'>
         <form className='form-vertical-center p-4       background-gradient rounded' onSubmit={handleSubmit}>
           <label className='pb-1 fw-bold text-light'>Login</label>
-
           <input className='my-1' type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail( e.target.value)}/>
-
           <input className='my-1' type="password"placeholder="Enter password"value={password} onChange={(e) => setPassword(e.target.value)}/>
-
           <button disabled={isLoading} className='my-1' type="submit">Login</button>
           {error && <div className='error'>{error}</div>}
         </form>
