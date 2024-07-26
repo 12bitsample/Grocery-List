@@ -16,6 +16,8 @@ const Navbar = () => {
                     <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
                     <Link className='px-1 fw-bold link-light text-decoration-none' to="/login">Login</Link>
                     <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
+
+                    <button className='px-1 fw-bold link-light text-decoration-none'>Logout?</button>
                 </div>
                 
             </div>
