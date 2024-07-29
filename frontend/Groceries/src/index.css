@@ -13204,21 +13204,23 @@ select.form-control[multiple] {
 
 .container-fluid {
   display: flex; 
-  
   justify-content: center; 
   align-items: center; 
   height: 100vh;
-  /* padding:  0 !important; */
-
 }
 
 .dohgie-bg {
-  /* position: relative; */
   background-image: url("images/maizykubes.jpg");
   background-size:80%;
-  /* background-position: center; */
   background-repeat: no-repeat;
   height: 0;
+}
+
+button {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: transparent;
+  border-color: #145a92;
+  border-style:hidden;
 }
 
 .dohgie-bg::before {

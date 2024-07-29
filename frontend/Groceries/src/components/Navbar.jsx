@@ -12,12 +12,18 @@ const Navbar = () => {
                 </div>
                 
                 <div className='px-2'>
-                    <Link className='px-1 fw-bold link-light text-decoration-none' to="/">Home</Link>
-                    <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
-                    <Link className='px-1 fw-bold link-light text-decoration-none' to="/login">Login</Link>
-                    <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
+                    <div className='container '>
+                        <div className="column">
+                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/">Home</Link>
+                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
+                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/login">Login</Link>
+                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
+                        </div>
+                        <div className="column pt-2 d-flex justify-content-end">
+                            <button className='px-1 fw-bold link-light text-decoration-none'>Logout?</button>
+                        </div>
 
-                    <button className='px-1 fw-bold link-light text-decoration-none'>Logout?</button>
+                    </div>
                 </div>
                 
             </div>
