@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useLogout } from '../hooks/useLogout';
 
 
 const Navbar = () => {
+
+    const { logout } = useLogout();
+
+    const handleClick = () => {
+        logout();
+    }
 
     return (
 
@@ -20,7 +27,7 @@ const Navbar = () => {
                             <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
                         </div>
                         <div className="column pt-2 d-flex justify-content-end">
-                            <button type="button" class="btn fw-bold p-1 btn-outline-secondary">Logout</button>
+                            <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">Logout</button>
                         </div>
 
                     </div>
