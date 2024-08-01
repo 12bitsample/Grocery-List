@@ -12,7 +12,7 @@ export const useRegister = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('')
+        const response = await fetch('api/user/register')
     }
 
 
