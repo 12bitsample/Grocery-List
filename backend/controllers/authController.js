@@ -9,6 +9,9 @@ const createToken = (_id) => {
 //need to figure out why why POST register in console not found
 const registerUser = async (req, res) => {
     try {
+
+            alert('made it to controller')
+
             const {email, password} = req.body;
             //check that name was entered
             // if(!name) {

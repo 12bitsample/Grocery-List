@@ -25,62 +25,62 @@ export default function Register() {
     }));
   };
 
-  const registerUser = async (e) => {
-      e.preventDefault();
+  // const registerUser = async (e) => {
+  //     e.preventDefault();
       
-      const { email, password } = data;
+  //     const { email, password } = data;
 
-      // Client-side validation
-      if (!email || !password) {
-        setError('All fields must be filled out!');
-        return; // Prevent form submission
-      }
+  //     // Client-side validation
+  //     if (!email || !password) {
+  //       setError('All fields must be filled out!');
+  //       return; // Prevent form submission
+  //     }
 
-      //check that email is email address
-      if (!validator.isEmail(email)) {
-        // setError('Email must be a valid email address.');
-        // // throw Error('Email must be a valid email address.');
-        toast.error('You must provide a valid email address');
-        return;
-      }
+  //     //check that email is email address
+  //     if (!validator.isEmail(email)) {
+  //       toast.error('You must provide a valid email address');
+  //       return;
+  //     }
 
-      try{
-        // const response = await axios.post('/register', {
-        //    email, password,
-        //  })
+  //     try{
+  //        const response = await fetch('/register', {
+  //         method: 'POST',
+  //         headers: {'Content-Type': 'application/json'},
+  //         body: {email, password},
+  //       })
 
-         const response = await fetch('/register', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          // body: JSON.stringify({ email, password }),
-          body: {email, password},
-        })
+  //       const json = await response.data;
 
-        const json = await response.data;
-
-        if(response.error) {
-          toast.error(response.error);
-          // setError(response.data.error);
-        } else {
-          setData({
-            email: '',
-            password: '',
-          });
+  //       if(response.error) {
+  //         toast.error(response.error);
           
-          //save user to local storage
-          localStorage.setItem('user', JSON.stringify(json));
+  //       } else {
+  //         setData({
+  //           email: '',
+  //           password: '',
+  //         });
+          
+  //         //save user to local storage
+  //         localStorage.setItem('user', JSON.stringify(json));
 
-          //update auth context
-          // dispatchEvent({type: 'LOGIN', payload: json});
+  //         toast.success('Registration successful!');
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  // }
 
-          toast.success('Registration successful!');
-
-          // navigate('/login');
-        }
-      } catch (error) {
-        console.log(error);
-      }
-  }
+  const registerUser = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const {signup, error, isLoading} = useSignup()
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+  
+      await signup(email, password)
+    }
+  
 
   return (
     <>
@@ -95,4 +95,4 @@ export default function Register() {
       </div>
     </>
   )
-}
+}}
