@@ -9,11 +9,13 @@ export const useRegister = () => {
     const { dispatch } = useAuthContext();
 
     const register = async (email, password) => {
+        console.log('useRegister hook reached!')
         setIsLoading(true);
         setError(null);
 
         const response = await fetch('api/user/register');
     }
 
-
+    return register;
 }
+
