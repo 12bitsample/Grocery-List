@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast'; 
-import { useRegister } from '../hooks/useRegister';
+import useRegister from '../hooks/useRegister.jsx';
 import { useNavigate } from 'react-router-dom'; 
 import validator from 'validator';
 import { useAuthContext} from '../hooks/useAuthContext';
@@ -90,8 +90,9 @@ import { useAuthContext} from '../hooks/useAuthContext';
 const registerUser = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {signup, error, isLoading} = useSignup();
-  const register = useRegister();
+
+  const {signup, error, isLoading, register} = useRegister();
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -106,3 +107,6 @@ const registerUser = () => {
 
   )
 }
+
+export default registerUser;
+

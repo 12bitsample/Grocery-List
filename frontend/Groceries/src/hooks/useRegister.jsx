@@ -1,9 +1,7 @@
-//not sure this is needed for thgis apps purposes
-
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
-export const useRegister = () => {
+ const useRegister = () => {
     const [ error, setError ] = useState(null);
     const [ isLoading, setIsLoading ] = useState(null);
     const { dispatch } = useAuthContext();
@@ -18,4 +16,8 @@ export const useRegister = () => {
 
     return register;
 }
+
+export default {useRegister};
+
+
 
