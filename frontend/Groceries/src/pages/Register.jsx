@@ -90,8 +90,7 @@ import { useAuthContext} from '../hooks/useAuthContext';
 const registerUser = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const {signup, error, isLoading, register} = useRegister();
+  const { register, error, isLoading } = useRegister();
  
 
   const handleSubmit = async (e) => {
@@ -101,9 +100,16 @@ const registerUser = () => {
   }
 
   return (
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem tempora quaerat tenetur sed vitae odio pariatur, ex, mollitia consequatur aliquid doloribus natus veniam adipisci.</p>
+      <>
+        <div className='container-fluid' data-bs-theme='light'>
+          <form onSubmit={handleSubmit} className='form-vertical-center p-4 rounded background-gradient'>
+            <label className='pb-1 text-light fw-bold'>Register</label>
+            <input className='my-1' type='email' placeholder='Enter email' value={email} onChange={(e) => setEmail(e.target.value)} name='email' />
+            <input className='my-1' type='password' placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)} name='password' />           
+            <button className='btn fw-bold p-1 btn-outline-secondary my-1' type='submit'>Register</button>           {error && <div className="error text-danger">{error}</div>}         
+          </form>
       </div>
+      </>
 
   )
 }

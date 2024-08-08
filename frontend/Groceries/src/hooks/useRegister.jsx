@@ -11,13 +11,33 @@ import { useAuthContext } from "./useAuthContext";
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('api/user/register');
+        try {
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-type': 'application/json' },
+                body: JSON.stringify({ email, password }),  
+              });
+      
+              const json = await response.json();
+      
+              if (!response.ok) {
+                  setIsLoading(false);
+                  setError(json.error);
+                  return;
+              }
+      
+              dispatch({ type: 'LOGIN', payload:json });
+              setIsLoading(false);
+        } catch (error) {
+            setIsLoading(false);
+            setError(error.message);
+        }
     }
 
-    return register;
+    return { register, isLoading, error };
 }
 
-export default {useRegister};
+export default useRegister;
 
 
 
