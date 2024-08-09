@@ -17,16 +17,30 @@ import { useAuthContext } from "./useAuthContext";
                 headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify({ email, password }),  
               });
+
+              //troubleshooting - remove later
+              console.log('Response: ', response )
       
               const json = await response.json();
       
               if (!response.ok) {
-                  setIsLoading(false);
-                  setError(json.error);
-                  return;
+                //   setIsLoading(false);
+                //   setError(json.error);
+                //   return;
+
+                //troubleshooting - remove later
+                const errorText = await response.text();
+                console.log('Response error text:', errorText);
+                setError(`Error: ${response.status} - ${response.statusText}`);
+                setIsLoading(false);
+                return;
               }
+
+              //troubleshooting -remove later
+              const jsonResponseBody = JSON.parse(responseBody);
+              console.log('Parsed JSON:', jsonResponseBody);
       
-              dispatch({ type: 'LOGIN', payload:json });
+              dispatch({ type: 'LOGIN', payload: json });
               setIsLoading(false);
         } catch (error) {
             setIsLoading(false);
