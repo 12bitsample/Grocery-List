@@ -10,8 +10,6 @@ const createToken = (_id) => {
 const registerUser = async (req, res) => {
     try {
 
-            alert('made it to controller')
-
             const {email, password} = req.body;
             //check that name was entered
             // if(!name) {
@@ -34,7 +32,7 @@ const registerUser = async (req, res) => {
             };
 
             const user = await User.create({
-                name, email, password,
+                email, password,
             })
 
             return res.json(user);

@@ -22,6 +22,7 @@ import { useAuthContext } from "./useAuthContext";
               console.log('Response: ', response )
       
               const json = await response.json();
+              console.log('Parsed JSON', json);
       
               if (!response.ok) {
                 //   setIsLoading(false);
@@ -37,7 +38,7 @@ import { useAuthContext } from "./useAuthContext";
               }
 
               //troubleshooting -remove later
-              const jsonResponseBody = JSON.parse(responseBody);
+              const jsonResponseBody = JSON.parse(response);
               console.log('Parsed JSON:', jsonResponseBody);
       
               dispatch({ type: 'LOGIN', payload: json });
