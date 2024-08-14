@@ -22,7 +22,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import { loginUser, registerUser } from '../controllers/authController.js';
+import { loginUser, registerUser, signupUser } from '../controllers/authController.js';
 
 
 
@@ -36,9 +36,10 @@ router.use(
 )
 
 // login route
-router.post('/register', registerUser);
-
-// signup route
 router.post('/login', loginUser);
+
+// register route
+// router.post('/register', registerUser);
+router.post('/register', signupUser);
 
 export {router as default}
