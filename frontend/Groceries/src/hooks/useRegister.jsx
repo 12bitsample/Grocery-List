@@ -20,9 +20,6 @@ import { useAuthContext } from "./useAuthContext";
 
               //troubleshooting - remove later
               console.log('Response: ', response )
-
-              const responseText = await  response.text();
-              console.log('Raw response text: ', responseText);
       
               const json = await response.json();
               console.log('Parsed JSON', json);
