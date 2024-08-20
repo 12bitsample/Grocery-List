@@ -3,11 +3,10 @@ import { useAuthContext } from "./useAuthContext";
 
  const useRegister = () => {
     const [ error, setError ] = useState(null);
-    const [ isLoading, setIsLoading ] = useState(null);
+    const [ isLoading, setIsLoading ] = useState(false);
     const { dispatch } = useAuthContext();
 
     const register = async (email, password) => {
-        console.log('useRegister hook reached!')
         setIsLoading(true);
         setError(null);
 
@@ -25,25 +24,17 @@ import { useAuthContext } from "./useAuthContext";
               console.log('Parsed JSON', json);
       
               if (!response.ok) {
-                //   setIsLoading(false);
-                //   setError(json.error);
-                //   return;
-
                 //troubleshooting - remove later
-                const errorText = await response.text();
                 console.log('Response error text:', errorText);
-                setError(`Error: ${response.status} - ${response.statusText}`);
+
+                setError(json.error || `Error: ${response.status} - ${response.statusText}`);
                 setIsLoading(false);
                 return;
               }
-
-              //troubleshooting -remove later
-              const jsonResponseBody = JSON.parse(response);
-              console.log('Parsed JSON:', jsonResponseBody);
       
               dispatch({ type: 'LOGIN', payload: json });
               setIsLoading(false);
-        } catch (error) {
+            } catch (error) {
             setIsLoading(false);
             setError(error.message);
         }
