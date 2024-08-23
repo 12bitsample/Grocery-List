@@ -23,6 +23,13 @@ const Navbar = () => {
                 
                 <div className='px-2'>
                     <div className='container '>
+
+                        {/* <span>{user.email}</span> */}
+
+                        <span>
+                            {user ? (<p>Welcome, {user.email}</p>) : (<p>Please log in</p>)}
+                        </span>
+
                         <div className="column">
                             <Link className='px-1 fw-bold link-light text-decoration-none' to="/">Home</Link>
                             <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
