@@ -20,7 +20,6 @@ const Navbar = () => {
                 <div>
                     <Link className='px-2 fw-bolder link-light text-decoration-none' to='/'>Grocery List Deluxe</Link>
                 </div>
-                
                 <div className='px-2'>
                     <div className='container '>
 
@@ -42,9 +41,7 @@ const Navbar = () => {
 
                     </div>
                 </div>
-                
             </div>
-
         </nav>
     )
 }
