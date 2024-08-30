@@ -27,17 +27,21 @@ const Navbar = () => {
 
                         <span>
                             {user ? (<p>Welcome, {user.email}</p>) : (<p>Please log in</p>)}
-                        </span>
+                        
 
-                        <div className="column">
-                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/">Home</Link>
-                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
-                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/login">Login</Link>
-                            <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
-                        </div>
-                        <div className="column pt-2 d-flex justify-content-end">
-                            <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">Logout</button>
-                        </div>
+                            <div className="column">
+                                <Link className='px-1 fw-bold link-light text-decoration-none' to="/">Home</Link>
+                                <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
+                                <Link className='px-1 fw-bold link-light text-decoration-none' to="/login">Login</Link>
+                                <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
+                            </div>
+
+                            {user ? (<div className="column pt-2 d-flex justify-content-end">
+                                <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">Logout</button>
+                            </div>) : (<p>Please log in</p>)}
+                            
+                        </span>
+                        
 
                     </div>
                 </div>
