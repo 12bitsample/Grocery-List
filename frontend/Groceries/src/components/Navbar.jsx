@@ -21,26 +21,24 @@ const Navbar = () => {
                     <Link className='px-2 fw-bolder link-light text-decoration-none' to='/'>Grocery List Deluxe</Link>
                 </div>
                 <div className='px-2'>
-                    <div className='container '>
-
-                        {/* <span>{user.email}</span> */}
-
+                    <div className="column">
                         <span>
-                            {user ? (<p>Welcome, {user.email}</p>) : (<p>Please log in</p>)}
-                        
-
                             <div className="column">
                                 <Link className='px-1 fw-bold link-light text-decoration-none' to="/">Home</Link>
                                 <Link className='px-1 fw-bold link-light text-decoration-none' to="/register">Register</Link>
                                 <Link className='px-1 fw-bold link-light text-decoration-none' to="/login">Login</Link>
                                 <Link className='px-1 fw-bold link-light text-decoration-none' to="/list">List</Link>
                             </div>
-
-                            {user ? (<div className="column pt-2 d-flex justify-content-end">
-                                <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">Logout</button>
-                            </div>) : (<p>Please log in</p>)}
-                            
                         </span>
+
+                        <div className="column d-flex">
+                                    {user ? (<p className="col text-light text-nowrap align-middle">Welcome, {user.email}</p>) : (<Link className='px-1 fw-lighter link-light text-decoration-none' to="/login">Please log in!</Link>)
+                                    }
+                                    {user ? (<div className="col py-1 d-flex justify-content-end">
+                                        <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">Logout?</button>
+                                        </div>) : (<p></p>)
+                                    }  
+                                </div>
                         
 
                     </div>
