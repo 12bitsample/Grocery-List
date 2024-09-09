@@ -20,7 +20,7 @@ const Navbar = () => {
                 </div>
                 <div className="d-flex px-1">
                     <div className="row d-flex">
-                        <div className="d-flex flex-column align-items-end">
+                        <div className="d-flex flex-column align-items-end px-2">
 
                             <span>
                                 <div className="column d-flex align-items-end">
