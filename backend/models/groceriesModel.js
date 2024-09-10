@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const {Schema} = mongoose;
 
@@ -10,7 +10,7 @@ const groceriesSchema = new Schema({
     amount: Number,
 }, {timestamps: true });
 
-const GroceriesModel = mongoose.model('Groceries', groceriesSchema);
+const GroceriesModel = mongoose.model("Groceries", groceriesSchema);
 
 export {GroceriesModel as default};
 

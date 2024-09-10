@@ -8,12 +8,12 @@ import { addGroceryItem,
 const router = express.Router();
 
 //get all groceries items
-router.get('/', getGroceries);
+router.get("/", getGroceries);
 
 //post new grocery item
-router.post('/', addGroceryItem);
+router.post("/", addGroceryItem);
 
 //delete grocery item
-router.delete('/:id', deleteGroceryItem);
+router.delete("/:id", deleteGroceryItem);
 
 export {router as default};

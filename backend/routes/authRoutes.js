@@ -1,7 +1,6 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import { loginUser, signupUser } from '../controllers/authController.js';
+import express from "express";
+import cors from "cors";
+import { loginUser, signupUser } from "../controllers/authController.js";
 
 
 
@@ -10,14 +9,14 @@ const router = express.Router();
 router.use(
     cors({
         credentials: true,
-        origin: 'http://localhost:5173',
+        origin: "http://localhost:5173",
     })
 )
 
 // login route
-router.post('/login', loginUser);
+router.post("/login", loginUser);
 
 // register route
-router.post('/register', signupUser);
+router.post("/register", signupUser);
 
 export {router as default}

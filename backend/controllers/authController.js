@@ -1,5 +1,5 @@
-import User from '../models/userModel.js';
-import jwt from 'jsonwebtoken';
+import User from "../models/userModel.js";
+import jwt from "jsonwebtoken";
 
 
 const createToken = (_id) => {
@@ -15,7 +15,7 @@ const registerUser = async (req, res) => {
             //check if password was entered
             if(!password || password.length < 6) {
                     return res.json({
-                        error: 'Password is required and must be at least 6 characters in length.'
+                        error: "Password is required and must be at least 6 characters in length."
                     })
             };
             
@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
             const exists = await User.findOne({email});
             if(exists) {
                 return res.json({
-                    error: 'Sorry, this email is already in use!'
+                    error: "Sorry, this email is already in use!"
                 })
             };
 
@@ -48,7 +48,7 @@ const signupUser = async (req, res) => {
       const exists = await User.findOne({email});
       if(exists) {
           return res.json({
-              error: 'Sorry, this email is already in use!'
+              error: "Sorry, this email is already in use!"
           })
       };
 
@@ -74,7 +74,6 @@ const loginUser = async (req, res) => {
 
     res.status(200).json({email, token});
 
-    console.log('loginUser function successful!')
   } catch (error) {
     res.status(400).json({error: error.message});
   }

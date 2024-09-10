@@ -28,20 +28,20 @@ const deleteGroceryItem = async (req, res) => {
     const { id } = req.params;  
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'Invalid item ID.'});
+        return res.status(404).json({error: "Invalid item ID."});
     }
 
     try {
         const groceryItem = await GroceriesModel.findOneAndDelete({_id: id});
 
         if (!groceryItem) {
-            return res.status(400).json({error: 'Item can not be located.'});
+            return res.status(400).json({error: "Item can not be located."});
         }
 
-        return res.status(200).json({ message: 'Item deleted successfully!'});
+        return res.status(200).json({ message: "Item deleted successfully!"});
 
     } catch (error) {
-        return res.status(500).json({ error: 'Server error.' });
+        return res.status(500).json({ error: "Server error." });
     }
 }
 

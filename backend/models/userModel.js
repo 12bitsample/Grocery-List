@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
-import validator from 'validator';
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import validator from "validator";
 
 const {Schema} = mongoose;
 
@@ -21,20 +21,20 @@ userSchema.statics.signup = async function (email, password) {
     
     //validation
     if (!email || !password) {
-        throw new Error('All fields must be filled out.');
+        throw new Error("All fields must be filled out.");
     }
 
     // check that email is email address
     if (!validator.isEmail(email)) {
-        setError('Email must be a valid email address.')
-        throw Error('Email must be a valid email address.');
+        setError("Email must be a valid email address.");
+        throw Error("Email must be a valid email address.");
         return;
     }
 
     const exists = await this.findOne({ email });
 
     if (exists) {
-        throw new Error('Email already in use.');
+        throw new Error("Email already in use.");
     }
 
     //create salt
@@ -51,24 +51,24 @@ userSchema.statics.signup = async function (email, password) {
 userSchema.statics.login = async function(email, password) {
 
     if (!email || !password) {
-        throw Error('All fields must be entered.')
+        throw Error("All fields must be entered.");
     }
 
     const user = await this.findOne({ email });
 
     if (!user) {
-        throw new Error('No user with that email exists.');
+        throw new Error("No user with that email exists.");
     }
 
     const match = await bcrypt.compare(password, user.password);
 
     if (!match) {
-        throw Error('Password is incorrect.');
+        throw Error("Password is incorrect.");
     }
 
     return user;
 }
 
-const UserModel = mongoose.model('User', userSchema);
+const UserModel = mongoose.model("User", userSchema);
 
 export {UserModel as default};
