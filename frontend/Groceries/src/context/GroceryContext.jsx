@@ -11,15 +11,15 @@ export const groceryReducer = (state, action) => {
     
 
     switch (action.type) {
-        case 'SET_GROCERIES':
+        case "SET_GROCERIES":
             return {
                 groceries: action.payload
             }
-            case 'ADD_GROCERY':
+            case "ADD_GROCERY":
                 return {
                     groceries: [action.payload, ...state.groceries]
                 }
-            case 'DELETE_GROCERY':
+            case "DELETE_GROCERY":
                 return {
                     groceries: state.groceries.filter(g => g._id !== action.payload)
                 }

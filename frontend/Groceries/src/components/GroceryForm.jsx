@@ -17,7 +17,7 @@ const GroceryForm = () => {
 
         const groceries = { item, amount };
 
-        const response = await fetch('http://localhost:4000/api/groceries/', {
+        const response = await fetch("http://localhost:4000/api/groceries/", {
             method: "POST",
             body: JSON.stringify(groceries),
             headers: {
@@ -34,18 +34,18 @@ const GroceryForm = () => {
         }
         if(response.ok) {
             if (!groceries.amount) {
-               return setError('You must enter an amount value for item.');
+               return setError("You must enter an amount value for item.");
             } 
             if (!isNaN(groceries.item)) {
-                return setError('Item can not be a number value.');
+                return setError("Item can not be a number value.");
             }
             
             setItem('');
             setAmount('');
             setError(null);
 
-            console.log('Groceries added: ', json);
-            dispatch({type: 'ADD_GROCERY', payload: json});
+            console.log("Groceries added: ", json);
+            dispatch({type: "ADD_GROCERY", payload: json});
         }
     }
 
@@ -82,7 +82,6 @@ const GroceryForm = () => {
                     
                     <button type="submit"  className="btn btn-success w-50">Add Grocery Item</button>
                     {error && <div className="error text-danger">{error}</div>}
-                    {/* <div className=""></div> */}
                 </form>
 
             </div>
