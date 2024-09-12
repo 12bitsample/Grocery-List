@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import GroceryForm  from '../components/GroceryForm.jsx';
-import { useGroceryContext } from '../hooks/useGroceryContext.jsx';
+import { useEffect, useState } from "react";
+import GroceryForm  from "../components/GroceryForm.jsx";
+import { useGroceryContext } from "../hooks/useGroceryContext.jsx";
 
 const List = () => {
 
@@ -10,10 +10,10 @@ const List = () => {
         const fetchGroceries = async () => {
 
             try {
-                const response = await fetch('http://localhost:4000/api/groceries/', {
-                    method: 'GET',
-                    headers: {'Content-Type': 'application/json'},
-                    credentials: 'include', // Include credentials in the request
+                const response = await fetch("http://localhost:4000/api/groceries/", {
+                    method: "GET",
+                    headers: {"Content-Type": "application/json"},
+                    credentials: "include", // Include credentials in the request
                 })
 
                 // console.log('Here is the fetch response: ', response)
@@ -21,16 +21,16 @@ const List = () => {
                 const json = await response.json();
     
                 if(!response.ok) {
-                    console.error('Network response was not ok:', response.statusText);
-                    throw new Error('Network response was not ok');
+                    console.error("Network response was not ok: ", response.statusText);
+                    throw new Error("Network response was not ok");
                 }
     
                 if(response.ok) {
-                    dispatch({type: 'SET_GROCERIES', payload: json});
+                    dispatch({type: "SET_GROCERIES", payload: json});
                 }
  
             } catch (error) {
-                console.log('Error: ', error)
+                console.log("Error: ", error)
             }
         }
         fetchGroceries();
@@ -38,19 +38,18 @@ const List = () => {
 
     const handleDeleteClick = async (grocery) => {
         try {
-            const response = await fetch('http://localhost:4000/api/groceries/' + grocery._id, {
+            const response = await fetch("http://localhost:4000/api/groceries/" + grocery._id, {
             method: "DELETE",
-
             });
 
             if (!response.ok) {
-                throw new Error('Failed to delete item!');
+                throw new Error("Failed to delete item!");
             }
 
-            await dispatch({ type: 'DELETE_GROCERY', payload: grocery._id });
+            await dispatch({ type: "DELETE_GROCERY", payload: grocery._id });
           
         } catch (error) {
-            console.error('Error deleting item:', error);
+            console.error("Error deleting item: ", error);
         }
 
     }
@@ -67,18 +66,18 @@ const List = () => {
                             <table className="table table-hover w-75 pb-3">
                                 <thead>
                                     <tr>
-                                        <th scope='col'>Amount</th>
-                                        <th scope='col'>Item</th>
-                                        <th scope='col'>Remove Item</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Remove Item</th>
                                     </tr>
                                 </thead>
                                 
                                 <tbody>
                                     {groceries.map((grocery, index) => (
-                                        <tr key={grocery._id} className={index % 2 === 0 ? 'table-success' : ''} >
-                                            <td className='py-2'>{grocery.amount}</td>
-                                            <td className='py-2'>{grocery.item}</td>
-                                            <td className='py-2'>
+                                        <tr key={grocery._id} className={index % 2 === 0 ? "table-success" : ''} >
+                                            <td className="py-2">{grocery.amount}</td>
+                                            <td className="py-2">{grocery.item}</td>
+                                            <td className="py-2">
                                                 <button type="button" className="btn btn-success" onClick={() => handleDeleteClick(grocery)}>
                                                     Delete
                                                 </button>

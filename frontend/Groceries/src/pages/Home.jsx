@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <>
-      <div className='container-fluid'>
+      <div className="container-fluid">
 
         <div className="card border-secondary p-4 w-50" >
           <h4 className="card-title mx-2">Welcome to Jilleen & Mahculls Grocery List!</h4>

@@ -11,28 +11,28 @@ import { useAuthContext } from "./useAuthContext";
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:4000/register', {
-                method: 'POST',
-                headers: { 'Content-type': 'application/json' },
+            const response = await fetch("http://localhost:4000/register", {
+                method: "POST",
+                headers: { "Content-type": "application/json" },
                 body: JSON.stringify({ email, password }),  
               });
 
               //troubleshooting - remove later
-              console.log('Response: ', response )
+              console.log("Response: ", response )
       
               const json = await response.json();
-              console.log('Parsed JSON', json);
+              console.log("Parsed JSON", json);
       
               if (!response.ok) {
                 //troubleshooting - remove later
-                console.log('Response error text:', errorText);
+                console.log("Response error text: ", errorText);
 
                 setError(json.error || `Error: ${response.status} - ${response.statusText}`);
                 setIsLoading(false);
                 return;
               }
       
-              dispatch({ type: 'LOGIN', payload: json });
+              dispatch({ type: "LOGIN", payload: json });
               setIsLoading(false);
             } catch (error) {
             setIsLoading(false);
