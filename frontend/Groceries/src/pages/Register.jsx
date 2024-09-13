@@ -1,14 +1,14 @@
 import { useState } from "react";
-import axios from "axios";
-import toast from "react-hot-toast"; 
 import useRegister from "../hooks/useRegister.jsx";
+// import axios from "axios";
+// import toast from "react-hot-toast"; 
 // import { useNavigate } from 'react-router-dom'; 
 // import validator from 'validator';
 // import { useAuthContext} from '../hooks/useAuthContext';
 
 const registerUser = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { register, error, isLoading } = useRegister();
  
 
@@ -20,17 +20,16 @@ const registerUser = () => {
 
   return (
       <>
-        <div className='container-fluid' data-bs-theme='light'>
-          <form onSubmit={handleSubmit} className='form-vertical-center p-4 rounded background-gradient'>
-            <label className='pb-1 text-light fw-bold'>Register</label>
-            <input className='my-1' type='email' placeholder='Enter email' value={email} onChange={(e) => setEmail(e.target.value)} name='email' />
-            <input className='my-1' type='password' placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)} name='password' />           
-            <button className='btn fw-bold p-1 btn-outline-secondary my-1' type='submit'>Register</button>           
+        <div className="container-fluid" data-bs-theme="light">
+          <form onSubmit={handleSubmit} className="form-vertical-center p-4 rounded background-gradient">
+            <label className="pb-1 text-light fw-bold">Register</label>
+            <input className="my-1" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" />
+            <input className="my-1" type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />           
+            <button className="btn fw-bold p-1 btn-outline-secondary my-1" type="submit">Register</button>           
             {error && <div className="error text-danger">{error}</div>}         
           </form>
       </div>
       </>
-
   )
 }
 

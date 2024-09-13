@@ -6,8 +6,8 @@ import { useContext } from "react";
 
 const GroceryForm = () => {
     
-    const [ item, setItem ] = useState('');
-    const [ amount, setAmount ] = useState('');
+    const [ item, setItem ] = useState("");
+    const [ amount, setAmount ] = useState("");
     const [ error, setError ] = useState(null);
     const { dispatch } = useContext(GroceriesContext);
     const [emptyFields, setEmptyFields] = useState([]);
