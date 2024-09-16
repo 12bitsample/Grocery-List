@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import { loginUser, signupUser } from "../controllers/authController.js";
 
-
-
 const router = express.Router();
 
 router.use(
