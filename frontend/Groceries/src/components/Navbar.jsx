@@ -4,8 +4,8 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navbar = () => {
 
-    const { user } = useAuthContext();
     const { logout } = useLogout();
+    const { user } = useAuthContext();
 
     const handleClick = () => {
         logout();
@@ -16,7 +16,7 @@ const Navbar = () => {
         <nav className="navbar-nav navbar-expand-xxl background-gradient" data-bs-theme="dark">
             <div className="d-flex justify-content-between w-100 py-3">
                 <div>
-                    <Link className="px-2 fw-bolder link-light text-decoration-none" to='/'>Grocery List Deluxe</Link>
+                    <Link className="px-2 fw-bolder link-light text-decoration-none" to="/">Grocery List Deluxe</Link>
                 </div>
                 <div className="d-flex px-1">
                     <div className="row d-flex">
