@@ -27,11 +27,12 @@ const Navbar = () => {
                                     <Link className="px-1 fw-bold link-light text-decoration-none" to="/">Home</Link>
                                     <Link className="px-1 fw-bold link-light text-decoration-none" to="/register">Register</Link>
                                     <Link className="px-1 fw-bold link-light text-decoration-none" to="/login">Login</Link>
-                                    <Link className="px-1 fw-bold link-light text-decoration-none" to="/list">List</Link>
+                                    {user ? (<Link className="px-1 fw-bold link-light text-decoration-none" to="/list">List</Link>) : (<></>)
+                                    }
                                 </div>
                             </span>
 
-                                    {user ? (<p className="col text-light text-nowrap align-middle">Welcome, {user.email}</p>) : (<Link className="px-1 fw-lighter link-light text-decoration-none" to="/login">Please log in!</Link>)
+                                    {user ? (<p className="col text-light text-nowrap align-middle">Welcome, {user.email}</p>) : (<></>)
                                     }
                                     {user ? (<div className="col py-1 d-flex justify-content-end align-middle">
                                         <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">Logout?</button>
