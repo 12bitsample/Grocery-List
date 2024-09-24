@@ -2,10 +2,15 @@ import express from "express";
 // import mongoose from "mongoose";
 import { addGroceryItem, 
         deleteGroceryItem, 
-        getGroceries, } from "../controllers/groceryController.js";
+        getGroceries, 
+} from "../controllers/groceryController.js";
+import requireAuth from "../middleware/requireAuth.js";
 
 //router
 const router = express.Router();
+
+//require auth for all grocery routes
+router.use(requireAuth);
 
 //get all groceries items
 router.get("/", getGroceries);
