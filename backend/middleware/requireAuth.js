@@ -1,5 +1,5 @@
-import jwt from ("jsonwebtoken");
-import User from("../models/userModel");
+import jwt from "jsonwebtoken";
+import User from "../models/userModel.js";
 
 const requireAuth = async (req, res, next) => {
 
@@ -7,7 +7,7 @@ const requireAuth = async (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-        return res.status(401).json({error: "Authorization token required!"})
+        return res.status(401).json({error: "Authorization token required!"});
     }
 
     const token = authorization.split(" ")[1];
