@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import GroceryForm  from "../components/GroceryForm.jsx";
 import { useGroceryContext } from "../hooks/useGroceryContext.jsx";
+import { useAuthContext } from "../hooks/useAuthContext.jsx";
 
 const List = () => {
 
     const { groceries, dispatch } = useGroceryContext();
+    const { user } = useAuthContext();
 
     useEffect(() => {
         const fetchGroceries = async () => {
@@ -16,8 +18,6 @@ const List = () => {
                     credentials: "include", // Include credentials in the request
                 })
 
-                // console.log('Here is the fetch response: ', response)
-    
                 const json = await response.json();
     
                 if(!response.ok) {
@@ -28,13 +28,17 @@ const List = () => {
                 if(response.ok) {
                     dispatch({type: "SET_GROCERIES", payload: json});
                 }
+
+                if (user) {
+                    fetchGroceries();
+                }
  
             } catch (error) {
                 console.log("Error: ", error)
             }
         }
-        fetchGroceries();
-    }, [dispatch]);
+        // fetchGroceries();
+    }, [dispatch, user]);
 
     const handleDeleteClick = async (grocery) => {
         try {
