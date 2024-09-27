@@ -14,7 +14,10 @@ const List = () => {
             try {
                 const response = await fetch("http://localhost:4000/api/groceries/", {
                     method: "GET",
-                    headers: {"Content-Type": "application/json"},
+                    headers: {
+                                "Authorization": `Bearer ${user.token}`,
+                                "Content-Type": "application/json"
+                            },
                     credentials: "include", // Include credentials in the request
                 })
 
