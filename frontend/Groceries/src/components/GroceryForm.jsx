@@ -2,6 +2,8 @@ import { useState } from "react"
 import { GroceriesContext } from "../context/GroceryContext";
 import { addGroceryItem } from "../../../../backend/controllers/groceryController";
 import { useContext } from "react";
+import { useAuthContext } from "../hooks/useAuthContext";
+
 
 
 const GroceryForm = () => {
@@ -16,12 +18,19 @@ const GroceryForm = () => {
         e.preventDefault();
 
         const groceries = { item, amount };
+        const { user } = useAuthContext();
+
+        if (!user) {
+            setError("You must be logged in.");
+            return;
+        }
 
         const response = await fetch("http://localhost:4000/api/groceries/", {
             method: "POST",
             body: JSON.stringify(groceries),
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${user.token}`,
             },
         });
         

@@ -9,7 +9,7 @@ import requireAuth from "../middleware/requireAuth.js";
 //router
 const router = express.Router();
 
-//require auth for all grocery routes
+//require auth for all grocery routes 
 router.use(requireAuth);
 
 //get all groceries items
