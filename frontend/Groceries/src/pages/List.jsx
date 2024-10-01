@@ -15,7 +15,7 @@ const List = () => {
                 const response = await fetch("http://localhost:4000/api/groceries/", {
                     method: "GET",
                     headers: {
-                                "Content-Type": "application/json",
+                                // "Content-Type": "application/json",
                                 "Authorization": `Bearer ${user.token}`,
                             },
                     credentials: "include", // Include credentials in the request
@@ -35,7 +35,7 @@ const List = () => {
                 if (user) {
                     fetchGroceries();
                 }
- 
+                
             } catch (error) {
                 console.log("Error: ", error)
             }
@@ -47,6 +47,9 @@ const List = () => {
         try {
             const response = await fetch("http://localhost:4000/api/groceries/" + grocery._id, {
             method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${user.token}`
+            }
             });
 
             if (!response.ok) {
