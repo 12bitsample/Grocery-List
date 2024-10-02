@@ -31,16 +31,14 @@ const List = () => {
                 if(response.ok) {
                     dispatch({type: "SET_GROCERIES", payload: json});
                 }
-
-                if (user) {
-                    fetchGroceries();
-                }
                 
             } catch (error) {
                 console.log("Error: ", error)
             }
         }
-        // fetchGroceries();
+        if (user) {
+            fetchGroceries();
+        }
     }, [dispatch, user]);
 
     const handleDeleteClick = async (grocery) => {

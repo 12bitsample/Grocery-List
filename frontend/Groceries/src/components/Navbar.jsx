@@ -25,10 +25,15 @@ const Navbar = () => {
                             <span>
                                 <div className="column d-flex align-items-end">
                                     <Link className="px-1 fw-bold link-light text-decoration-none" to="/">Home</Link>
-                                    <Link className="px-1 fw-bold link-light text-decoration-none" to="/register">Register</Link>
-                                    <Link className="px-1 fw-bold link-light text-decoration-none" to="/login">Login</Link>
-                                    {user ? (<Link className="px-1 fw-bold link-light text-decoration-none" to="/list">List</Link>) : (<></>)
-                                    }
+                                    {user ? (<>
+                                            <Link className="px-1 fw-bold link-light text-decoration-none" to="/list">List</Link>
+                                        </>) : (
+                                        <>
+                                            <Link className="px-1 fw-bold link-light text-decoration-none" to="/register">Register</Link>
+                                            <Link className="px-1 fw-bold link-light text-decoration-none" to="/login">Login</Link>
+                                        
+                                        </>
+                                    )}
                                 </div>
                             </span>
 
