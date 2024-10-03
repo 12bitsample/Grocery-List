@@ -13,12 +13,12 @@ const GroceryForm = () => {
     const [ error, setError ] = useState(null);
     const { dispatch } = useContext(GroceriesContext);
     const [emptyFields, setEmptyFields] = useState([]);
+    const { user } = useAuthContext();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const groceries = { item, amount };
-        const { user } = useAuthContext();
 
         if (!user) {
             setError("You must be logged in.");
