@@ -47,8 +47,7 @@ const List = () => {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${user.token}`
-            }
-            });
+            }});
 
             if (!response.ok) {
                 throw new Error("Failed to delete item!");
