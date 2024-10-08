@@ -38,6 +38,9 @@ const List = () => {
         }
         if (user) {
             fetchGroceries();
+        } else {
+            // Clear the groceries in the state when the user logs out
+            dispatch({ type: 'SET_GROCERIES', payload: [] });
         }
     }, [dispatch, user]);
 
@@ -58,7 +61,6 @@ const List = () => {
         } catch (error) {
             console.error("Error deleting item: ", error);
         }
-
     }
     
     return (
