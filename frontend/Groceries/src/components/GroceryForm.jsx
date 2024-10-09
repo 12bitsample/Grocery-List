@@ -62,10 +62,10 @@ const GroceryForm = () => {
             <>
                 <div className="card border-success mb-3">
                     <form onSubmit={handleSubmit} className=" d-flex flex-column align-items-center flex-wrap create m-4 py-4" >
-                        <legend className="fw-bold"><h3>Add Groceries</h3></legend>
+                        <legend className="fw-bold text-black"><h3>Add Groceries</h3></legend>
                         <div className="row justify-content-center w-50 pb-4 ">
                             
-                            <label className="col-form-label mt-4 form-control fw-bold" htmlFor="item" >Grocery Item</label>
+                            <label className="col-form-label mt-4 form-control fw-bold" htmlFor="item">Grocery Item</label>
                             <input 
                                 type="text" 
                                 name="item" 
@@ -88,7 +88,7 @@ const GroceryForm = () => {
 
                         </div>
                         
-                        <button type="submit"  className="btn btn-success w-50">Add Grocery Item</button>
+                        <button type="submit"  className="shadow btn btn-success w-50">Add Grocery Item</button>
                         {error && <div className="error text-danger">{error}</div>}
                     </form>
 
