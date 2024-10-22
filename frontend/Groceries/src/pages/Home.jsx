@@ -13,7 +13,8 @@ export default function Home() {
             <p className="card-text">So, slow your roll buckaroo. You're gonna need to login to prove that you are one
             of the aforementioned dohgies/ladies</p>
           </div>
-          <button type='button' className='btn btn-success w-25 align-self-center'><Link className='px-1 link-light text-decoration-none' to="/login">Login</Link></button>
+          <button type='button' className='btn btn-success w-25 align-self-center'><Link className='px-1 link-light
+          text-decoration-none' to="/login">Login</Link></button>
         </div>
 
       </div>
