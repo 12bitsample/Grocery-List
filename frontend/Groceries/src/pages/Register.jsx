@@ -25,7 +25,7 @@ const registerUser = () => {
             <label className="pb-1 text-light fw-bold">Register</label>
             <input className="my-1" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" />
             <input className="my-1" type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />           
-            <button className="border-black btn fw-bold p-1 btn-outline-secondary my-1" type="submit">Register</button>           
+            <button className="border-black btn fw-bold mt-3 btn-outline-secondary my-1" type="submit">Register</button>           
             {error && <div className="error text-danger">{error}</div>}         
           </form>
       </div>

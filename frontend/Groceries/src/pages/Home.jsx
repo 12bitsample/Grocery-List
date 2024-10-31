@@ -29,7 +29,7 @@ export default function Home() {
               <div className="card-body p-2">
                 <p className="card-text">So, slow your roll buckaroo. You're gonna need to log out to prove that you are one  of the aforementioned dohgies/ladies</p>
               </div>
-              <button type="button" className="ditto text-white btn btn-success fw-bold p-1 btn-outline-secondary my-1" ><Link to="/login">Login</Link></button>
+              <button type="button" className="background-gradient w-50 align-self-center text-white btn btn-success fw-bold p-1 btn-outline-secondary my-1"><Link className="text-decoration-none" to="/login">Login</Link></button>
             </div>
           )
         }
