@@ -4,8 +4,6 @@ import { addGroceryItem } from "../../../../backend/controllers/groceryControlle
 import { useContext } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-
-
 const GroceryForm = () => {
     
     const [ item, setItem ] = useState("");
@@ -83,15 +81,13 @@ const GroceryForm = () => {
                                 value={amount}
                                 id="amount"
                                 onChange={(e) => setAmount(e.target.value)}
-                                
                             />
 
                         </div>
                         
-                        <button type="submit"  className="shadow border-dark btn btn-success w-50">Add Grocery Item</button>
+                        <button type="submit"  className="shadow border-dark btn btn-success w-50 p-1">Add Grocery Item</button>
                         {error && <div className="error text-danger">{error}</div>}
                     </form>
-
                 </div>
             </>
         )

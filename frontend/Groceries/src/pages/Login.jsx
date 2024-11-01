@@ -19,7 +19,7 @@ const Login = () => {
           <label className="pb-1 fw-bold text-light">Login</label>
           <input className="my-1" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail( e.target.value)}/>
           <input className="my-1" type="password"placeholder="Enter password"value={password} onChange={(e) => setPassword(e.target.value)}/>
-          <button disabled={isLoading} className="text-white btn fw-bold mt-3 btn-outline-secondary my-1" type="submit">Login</button>
+          <button disabled={isLoading} className="text-white btn fw-bold mt-3 btn-outline-secondary my-1 p-1" type="submit">Login</button>
           {error && <div className="error">{error}</div>}
         </form>
       </div>
