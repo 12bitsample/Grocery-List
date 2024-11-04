@@ -34,7 +34,6 @@ const GroceryForm = () => {
         
         const json = await response.json();
 
-
         if(!response.ok) {
             const json = await response.json();
             setError(json.error);
@@ -82,7 +81,6 @@ const GroceryForm = () => {
                                 id="amount"
                                 onChange={(e) => setAmount(e.target.value)}
                             />
-
                         </div>
                         
                         <button type="submit"  className="shadow border-dark btn btn-success w-50 p-1">Add Grocery Item</button>
