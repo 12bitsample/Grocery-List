@@ -72,8 +72,8 @@ const List = () => {
                         <div className="card-header py-3 text-black"><h3>Grocery List </h3></div>
                         <div className="card-body w-100  py-5  h-75 d-flex row mx-auto justify-content-center">
                             
-                            <table className="table table-hover w-75 pb-3">
-                                <thead>
+                            <table className="table table-hover w-75">
+                                <thead className="border">
                                     <tr>
                                         <th scope="col">Amount</th>
                                         <th scope="col">Item</th>
@@ -100,7 +100,7 @@ const List = () => {
                     <GroceryForm />
                 </div>
             </div>
-        </>
+            </>
     )
 }
 

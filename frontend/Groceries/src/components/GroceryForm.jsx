@@ -62,7 +62,7 @@ const GroceryForm = () => {
                         <legend className="fw-bold text-black"><h3>Add Groceries</h3></legend>
                         <div className="row justify-content-center w-50 pb-4 ">
                             
-                            <label className="col-form-label mt-4 form-control fw-bold" htmlFor="item">Grocery Item</label>
+                            <label className="col-form-label mt-4 form-control fw-bold text-black" htmlFor="item">Grocery Item</label>
                             <input 
                                 type="text" 
                                 name="item" 
@@ -72,7 +72,7 @@ const GroceryForm = () => {
                                 onChange={(e) => setItem(e.target.value)} 
                             />
 
-                            <label className="col-form-label mt-4 form-control fw-bold" htmlFor="amount" value={amount}>Amount</label>
+                            <label className="col-form-label mt-4 form-control fw-bold text-black" htmlFor="amount" value={amount}>Amount</label>
                             <input 
                                 type="number" 
                                 name="amount" 
