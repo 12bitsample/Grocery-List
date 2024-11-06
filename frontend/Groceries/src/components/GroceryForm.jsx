@@ -57,7 +57,7 @@ const GroceryForm = () => {
 
         return (
             <>
-                <div className="card border-success mb-3">
+                <div className="card border mb-3">
                     <form onSubmit={handleSubmit} className=" d-flex flex-column align-items-center flex-wrap create m-4 py-4" >
                         <legend className="fw-bold text-black"><h3>Add Groceries</h3></legend>
                         <div className="row justify-content-center w-50 pb-4 ">

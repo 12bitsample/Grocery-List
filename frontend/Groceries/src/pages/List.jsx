@@ -68,16 +68,16 @@ const List = () => {
             <div className="container-fluid d-flex row">
                 <div className="row justify-content-center pt-3 align-items-center w-75">
 
-                    <div className="card border-success mb-3">
+                    <div className="card border mb-3">
                         <div className="card-header py-3 text-black"><h3>Grocery List </h3></div>
                         <div className="card-body w-100  py-5  h-75 d-flex row mx-auto justify-content-center">
                             
                             <table className="table table-hover w-75">
                                 <thead className="border">
                                     <tr>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Item</th>
-                                        <th scope="col">Remove Item</th>
+                                        <th scope="col" className="py-3">Amount</th>
+                                        <th scope="col" className="py-3">Item</th>
+                                        <th scope="col" className="py-3">Remove Item</th>
                                     </tr>
                                 </thead>
                                 
