@@ -20,7 +20,7 @@ const Login = () => {
           <input className="my-1" type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail( e.target.value)}/>
           <input className="my-1" type="password"placeholder="Enter password"value={password} onChange={(e) => setPassword(e.target.value)}/>
           <button disabled={isLoading} className="text-white btn fw-bold mt-3 btn-outline-secondary my-1 p-1" type="submit">Login</button>
-          {error && <div className="error">{error}</div>}
+          {error && <div className="error pt-2">{error}</div>}
         </form>
       </div>
    </>
