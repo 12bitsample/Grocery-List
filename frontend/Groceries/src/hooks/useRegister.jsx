@@ -23,14 +23,14 @@ import { useAuthContext } from "./useAuthContext";
               const json = await response.json();
               console.log("Parsed JSON", json);
       
-              if (!response.ok) {
-                //troubleshooting - remove later
-                console.log("Response error text: ", errorText);
+              // if (!response.ok) {
+              //   //troubleshooting - remove later
+              //   console.log("Response error text: ", errorText);
 
-                setError(json.error || `Error: ${response.status} - ${response.statusText}`);
-                setIsLoading(false);
-                return;
-              }
+              //   setError(json.error || `Error: ${response.status} - ${response.statusText}`);
+              //   setIsLoading(false);
+              //   return;
+              // }
       
               dispatch({ type: "LOGIN", payload: json });
               setIsLoading(false);
