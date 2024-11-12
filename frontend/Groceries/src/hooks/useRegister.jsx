@@ -19,11 +19,17 @@ import { useAuthContext } from "./useAuthContext";
       
               const json = await response.json();
               console.log("Parsed JSON", json);
-      
-              dispatch({ type: "LOGIN", payload: json });
-              setIsLoading(false);
+
+              if (!response.ok) {
+                setError(json.error || "Registration failed"); // Set error from JSON or a default message
+              } else {
+                dispatch({ type: "LOGIN", payload: json });
+                setIsLoading(false);
+              }
+    
             } catch (error) {
-            setIsLoading(false);
+              //continue code here
+              setIsLoading(false);
             setError(error.message);
         }
     }

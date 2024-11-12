@@ -83,7 +83,7 @@ const GroceryForm = () => {
                             />
                         </div>
                         
-                        <button type="submit"  className="shadow border-dark btn btn-success w-50 p-1">Add Grocery Item</button>
+                        <button type="submit"  className="text-white fw-bold btn-outline-secondary shadow border-dark btn btn-success w-50 p-1">Add Grocery Item</button>
                         {error && <div className="error text-danger">{error}</div>}
                     </form>
                 </div>
