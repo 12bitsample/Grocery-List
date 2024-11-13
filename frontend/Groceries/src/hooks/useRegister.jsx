@@ -27,11 +27,11 @@ import { useAuthContext } from "./useAuthContext";
                 setIsLoading(false);
               }
     
-            } catch (error) {
-              //continue code here
+            } catch (err) {
+              setError("An error occurred.");
+            } finally {
               setIsLoading(false);
-            setError(error.message);
-        }
+            }
     }
 
     return { register, isLoading, error };
