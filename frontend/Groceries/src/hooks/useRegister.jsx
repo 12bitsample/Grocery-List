@@ -8,7 +8,7 @@ import { useAuthContext } from "./useAuthContext";
 
     const register = async (email, password) => {
         setIsLoading(true);
-        setError(null);
+        setError(null); 
 
         try {
             const response = await fetch("http://localhost:4000/register", {
@@ -23,6 +23,7 @@ import { useAuthContext } from "./useAuthContext";
               if (!response.ok) {
                 setError(json.error || "Registration failed"); // Set error from JSON or a default message
               } else {
+                //issue is the dispatch below - figure out how to fix this
                 dispatch({ type: "LOGIN", payload: json });
                 setIsLoading(false);
               }
