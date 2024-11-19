@@ -7,34 +7,34 @@ import { useAuthContext } from "./useAuthContext";
     const { dispatch } = useAuthContext();
 
     const register = async (email, password) => {
-          setIsLoading(true);
-          setError(null); 
+            setIsLoading(true);
+            setError(null); 
 
-        try {
-            const response = await fetch("http://localhost:4000/register", {
-                method: "POST",
-                headers: { "Content-type": "application/json" },
-                body: JSON.stringify({ email, password }),  
-              });
-      
-              const json = await response.json();
-              console.log("Parsed JSON", json);
+            try {
+                const response = await fetch("http://localhost:4000/register", {
+                  method: "POST",
+                  headers: { "Content-type": "application/json" },
+                  body: JSON.stringify({ email, password }),  
+                });
+        
+                const json = await response.json();
+                //json logging - remove later
+                console.log("Parsed JSON", json);
 
-              if (!response.ok) {
-                setError(json.error || "Registration failed"); // Set error from JSON or a default message
-              } else {
-                //issue is the dispatch below - figure out how to fix this
-                dispatch({ type: "LOGIN", payload: json });
-                setIsLoading(false);
+                if (!response.ok) {
+                  setError(json.error); // Set error from JSON
+                  setIsLoading(false);
+
+                } 
+                if (response.ok) {
+                  //save user to local storage
+                  localStorage.setItem("user", JSON.stringify(json));
+                  //update auth context
+                  dispatch({ type: "LOGIN", payload: json });
+                  
+                }
               }
-    
-            } catch (err) {
-              setError("An error occurred.");
-            } finally {
-              setIsLoading(false);
             }
-    }
-
     return { register, isLoading, error };
 }
 
