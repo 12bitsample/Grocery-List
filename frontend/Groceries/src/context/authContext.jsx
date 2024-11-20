@@ -7,6 +7,7 @@ export const authReducer = (state, action) => {
         case "LOGIN":
             return { user: action.payload }
         case "LOGOUT": 
+            localStorage.removeItem("user"); //clear local storage on logout
             return { user: null }
         default:
             return state
@@ -16,7 +17,7 @@ export const authReducer = (state, action) => {
 export const AuthContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(authReducer, {
         user: null,
-});
+    });
 
     useEffect(()=> {
         const user = JSON.parse(localStorage.getItem("user"));

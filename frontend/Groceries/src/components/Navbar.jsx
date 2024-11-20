@@ -40,12 +40,23 @@ const Navbar = () => {
                                 </div>
                             </span>
 
-                                    {user ? (<p className="col text-light text-nowrap align-middle">Welcome, {user.email}</p>) : (<></>)
+                                    {/* {user ? (<p className="col text-light text-nowrap align-middle">Welcome, {user.email}</p>) : (<></>)
                                     }
                                     {user ? (<div className="col py-1 d-flex justify-content-end align-middle">
                                         <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">Logout?</button>
                                         </div>) : (<p></p>)
-                                    }  
+                                    }   */}
+
+                                    {user && (
+                                        <>
+                                        <p className="col text-light text-nowrap align-middle">Welcome, {user.email}</p>
+                                        <div className="col py-1 d-flex justify-content-end align-middle">
+                                            <button onClick={handleClick} type="button" className="btn fw-bold p-1 btn-outline-secondary">
+                                            Logout?
+                                            </button>
+                                        </div>
+                                        </>
+                                    )}
                                  </div>
                     </div>
                 </div>

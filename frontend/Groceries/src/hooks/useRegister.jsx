@@ -10,32 +10,35 @@ import { useAuthContext } from "./useAuthContext";
             setIsLoading(true);
             setError(null); 
 
-            try {
-                const response = await fetch("http://localhost:4000/register", {
-                  method: "POST",
-                  headers: { "Content-type": "application/json" },
-                  body: JSON.stringify({ email, password }),  
-                });
-        
-                const json = await response.json();
-                //json logging - remove later
-                console.log("Parsed JSON", json);
+            
+            const response = await fetch("http://localhost:4000/register", {
+              method: "POST",
+              headers: { "Content-type": "application/json" },
+              body: JSON.stringify({ email, password }),  
+            });
+    
+            const json = await response.json();
+            //json logging - remove later
+            console.log("Parsed JSON", json);
 
-                if (!response.ok) {
-                  setError(json.error); // Set error from JSON
-                  setIsLoading(false);
+            if (!response.ok) {
+              setError(json.error); // Set error from JSON
+              setIsLoading(false);
+              dispatch({ type: "LOGOUT" });
 
-                } 
-                if (response.ok) {
-                  //save user to local storage
-                  localStorage.setItem("user", JSON.stringify(json));
-                  //update auth context
-                  dispatch({ type: "LOGIN", payload: json });
-                  
-                }
-              }
+            } 
+            if (response.ok) {
+              //save user to local storage
+              localStorage.setItem("user", JSON.stringify(json));
+              //update auth context
+              dispatch({ type: "LOGIN", payload: json });
+              
             }
-    return { register, isLoading, error };
+              
+            
+          }
+
+          return { register, isLoading, error };
 }
 
 export default useRegister;
