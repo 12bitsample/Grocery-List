@@ -6,7 +6,7 @@ import { useAuthContext } from "./useAuthContext";
     const [ isLoading, setIsLoading ] = useState(false);
     const { dispatch } = useAuthContext();
 
-    const register = async (email, password) => {
+    const register = async (email, password) => { 
             setIsLoading(true);
             setError(null); 
 
@@ -19,7 +19,8 @@ import { useAuthContext } from "./useAuthContext";
     
             const json = await response.json();
             //json logging - remove later
-            console.log("Parsed JSON", json);
+            console.log("Response JSON", json);
+            console.log("Response status:", response.status);
 
             if (!response.ok) {
               setError(json.error); // Set error from JSON

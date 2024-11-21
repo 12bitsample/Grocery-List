@@ -80,7 +80,7 @@ const List = () => {
                                         <th scope="col" className="py-3">Remove Item</th>
                                     </tr>
                                 </thead>
-                                
+                                    
                                 <tbody>
                                     {groceries.map((grocery, index) => (
                                         <tr key={grocery._id} className={index % 2 === 0 ? "table-success" : ''} >
