@@ -26,9 +26,8 @@ userSchema.statics.signup = async function (email, password) {
 
     // check that email is email address
     if (!validator.isEmail(email)) {
-        setError("Email must be a valid email address.");
         throw Error("Email must be a valid email address.");
-        return;
+    
     }
 
     const exists = await this.findOne({ email });
