@@ -6,28 +6,6 @@ const createToken = (_id) => {
   return jwt.sign({_id}, process.env.SECRET, { expiresIn: "2d" });
 }
 
-//need to figure out why why POST register in console not found
-
-// const registerUser = async (req, res) => {
-//     const { email, password } = req.body;            
-
-//     try {
-//       const user = await User.signup(email, password);
-//       res.status(201).json(user); // Successfully created
-//     } catch (error) {
-//       console.error("Error in signup:", error.message);
-  
-//       // Handle known error messages
-//       if (error.message === "Email already in use.") {
-//         res.status(409).json({ error: error.message }); // Conflict error
-//       } else if (error.message === "Email must be a valid email address.") {
-//         res.status(400).json({ error: error.message }); // Bad request
-//       } else {
-//         res.status(500).json({ error: "Internal server error" }); // Generic server error
-//       }
-//     }
-// }
-
 const signupUser = async (req, res) => {
     
     const { email, password } = req.body
@@ -70,8 +48,6 @@ const loginUser = async (req, res) => {
 }
  
 export {
-    // registerUser,
-    
     signupUser,
     loginUser,
  }
