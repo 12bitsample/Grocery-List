@@ -10,8 +10,7 @@ import { useAuthContext } from "./useAuthContext";
             setIsLoading(true);
             setError(null); 
 
-            
-            const response = await fetch("http://localhost:4000/register", {
+              const response = await fetch("http://localhost:4000/register", {
               method: "POST",
               headers: { "Content-type": "application/json" },
               body: JSON.stringify({ email, password }),  
@@ -35,8 +34,6 @@ import { useAuthContext } from "./useAuthContext";
               dispatch({ type: "LOGIN", payload: json });
               
             }
-              
-            
           }
 
           return { register, isLoading, error };
