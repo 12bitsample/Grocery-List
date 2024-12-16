@@ -17,9 +17,6 @@ import { useAuthContext } from "./useAuthContext";
             });
     
             const json = await response.json();
-            //json logging - remove later
-            console.log("Response JSON", json);
-            console.log("Response status:", response.status);
 
             if (!response.ok) {
               setError(json.error); // Set error from JSON
@@ -32,7 +29,6 @@ import { useAuthContext } from "./useAuthContext";
               localStorage.setItem("user", JSON.stringify(json));
               //update auth context
               dispatch({ type: "LOGIN", payload: json });
-              
             }
           }
 
