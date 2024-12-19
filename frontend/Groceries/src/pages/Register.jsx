@@ -1,22 +1,24 @@
 import { useState } from "react";
 import useRegister from "../hooks/useRegister.jsx";
-import {validator} from "email-validator";
+import validator from "email-validator";
 
 const registerUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { register, error, isLoading } = useRegister();
-  const validator = validator();
+  
  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
 
-    if (validator.validate(email)) {
+    if (!validator.validate(email)) {
         
+      alert("Please enter a valid email address.");
+    }else {
       await register(email, password);
-    }else return alert("Please enter a valid email address.");
+    }
 
 
     
