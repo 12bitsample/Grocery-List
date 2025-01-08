@@ -13,15 +13,18 @@ const registerUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    //empty field check
+    if (!email || !password) {
+      // return error("Please fill out all fields.");
+      alert("Please fill out all fields.");
+    }
+
     if (!validator.isEmail(email)) {
         
-      alert("Please enter a valid email address.");
+      // alert("Please enter a valid email address.");
     }else {
       await register(email, password);
     }
-
-    
-    
   }
 
   return (
