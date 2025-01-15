@@ -12,6 +12,7 @@ const registerUser = () => {
  
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
 
     //clear previous form message
@@ -26,9 +27,15 @@ const registerUser = () => {
 
     if (!validator.isEmail(email)) {
         
-      // alert("Please enter a valid email address.");
-    }else {
+      setFormError("Please use valid email address.");
+      return;
+    }
+
+    try {
+      //attempt to register user
       await register(email, password);
+    } catch (error) {
+      console.error("Error during registration:", error);
     }
   }
 
@@ -41,7 +48,7 @@ const registerUser = () => {
             <input className="my-1" type="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" />           
             <button className="border-black btn fw-bold mt-3 btn-outline-secondary my-1 p-1" type="submit">Register</button>           
             {formError && <div className="error mt-2 opacity-80 bg-danger fw-bold text-white">{formError}</div>} 
-            {error && <div className="error text-danger">{error}</div>}         
+            {error && <div className="error mt-2 opacity-80 bg-danger fw-bold text-white">{error}</div>}         
           </form>
       </div>
       </>
