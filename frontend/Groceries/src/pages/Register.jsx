@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useRegister from "../hooks/useRegister.jsx";
 import validator from "validator";
 
@@ -17,7 +17,7 @@ const registerUser = () => {
 
     //clear previous form message
     setFormError("");
-
+    
     //empty field check
     if (!email || !password) {
       // alert("Please fill out all fields.");
@@ -37,7 +37,19 @@ const registerUser = () => {
     } catch (error) {
       console.error("Error during registration:", error);
     }
+
   }
+
+  // Automatically clear formError after 5 seconds
+  useEffect(() => {
+    if (formError) {
+      const timer = setTimeout(() => {
+        setFormError("");
+      }, 3000); // 3 seconds
+
+      return () => clearTimeout(timer); // Clear timer if component unmounts or error changes
+    }
+  }, [formError]);
 
   return (
       <>
