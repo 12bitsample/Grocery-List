@@ -12,24 +12,31 @@ const registerUser = () => {
  
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
 
-    //clear previous form message
-    setFormError("");
-    
-    //empty field check
+    let newError = "";
+
     if (!email || !password) {
-      // alert("Please fill out all fields.");
-      setFormError("Please fill out all fields.");
-      return;
+      newError = "Please fill out all fields.";
+    } else if (!validator.isEmail(email)) {
+      newError = "Please use a valid email address.";
     }
 
-    if (!validator.isEmail(email)) {
+    // //clear previous form message
+    // setFormError("");
+    
+    // //empty field check
+    // if (!email || !password) {
+    //   // alert("Please fill out all fields.");
+    //   setFormError("Please fill out all fields.");
+    //   return;
+    // }
+
+    // if (!validator.isEmail(email)) {
         
-      setFormError("Please use valid email address.");
-      return;
-    }
+    //   setFormError("Please use valid email address.");
+    //   return;
+    // }
 
     try {
       //attempt to register user
