@@ -22,6 +22,12 @@ const registerUser = () => {
       newError = "Please use a valid email address.";
     }
 
+    //if error, set error and return early
+    if (newError) {
+      setFormError(newError);
+      return;
+    }
+
     // //clear previous form message
     // setFormError("");
     
