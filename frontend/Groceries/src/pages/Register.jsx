@@ -18,7 +18,9 @@ const registerUser = () => {
 
     if (!email || !password) {
       newError = "Please fill out all fields.";
-    } else if (!validator.isEmail(email)) {
+    } 
+
+    if (!validator.isEmail(email)) {
       newError = "Please use a valid email address.";
     }
 
@@ -26,6 +28,14 @@ const registerUser = () => {
     if (newError) {
       setFormError(newError);
       return;
+    }
+
+    // Attempt to register user
+    try {
+      await register(email, password);
+      setFormError(""); // Clear error only after a successful registration
+    } catch (error) {
+      console.error("Error during registration:", error);
     }
 
     // //clear previous form message
@@ -44,12 +54,12 @@ const registerUser = () => {
     //   return;
     // }
 
-    try {
-      //attempt to register user
-      await register(email, password);
-    } catch (error) {
-      console.error("Error during registration:", error);
-    }
+    // try {
+    //   //attempt to register user
+    //   await register(email, password);
+    // } catch (error) {
+    //   console.error("Error during registration:", error);
+    // }
 
   }
 
@@ -58,7 +68,7 @@ const registerUser = () => {
     if (formError) {
       const timer = setTimeout(() => {
         setFormError("");
-      }, 3000); // 3 seconds
+      }, 5000); // 5 seconds
 
       return () => clearTimeout(timer); // Clear timer if component unmounts or error changes
     }
