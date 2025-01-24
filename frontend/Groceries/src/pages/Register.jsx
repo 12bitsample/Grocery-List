@@ -21,7 +21,7 @@ const registerUser = () => {
     } 
 
     if (!validator.isEmail(email)) {
-      newError = "Please use a valid email address.";
+      newError += (newError ? " " : "") + "Please use a valid email address.";
     }
 
     //if error, set error and return early
@@ -66,7 +66,7 @@ const registerUser = () => {
   // Automatically clear formError after 5 seconds
   useEffect(() => {
     if (formError) {
-      const timer = setTimeout(() => {
+        setTimeout(() => {
         setFormError("");
       }, 5000); // 5 seconds
 
