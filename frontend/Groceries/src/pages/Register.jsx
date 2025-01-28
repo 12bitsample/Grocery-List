@@ -14,19 +14,17 @@ const registerUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let newError = "";
+    // let newError = "";
+
+    setFormError("");
 
     if (!email || !password) {
-      newError = "Please fill out all fields.";
+      setFormError = "Please fill out all fields.";
+      return;
     } 
 
     if (!validator.isEmail(email)) {
-      newError += (newError ? " " : "") + "Please use a valid email address.";
-    }
-
-    //if error, set error and return early
-    if (newError) {
-      setFormError(newError);
+      setFormError += (newError ? " " : "") + "Please use a valid email address.";
       return;
     }
 
@@ -37,30 +35,6 @@ const registerUser = () => {
     } catch (error) {
       console.error("Error during registration:", error);
     }
-
-    // //clear previous form message
-    // setFormError("");
-    
-    // //empty field check
-    // if (!email || !password) {
-    //   // alert("Please fill out all fields.");
-    //   setFormError("Please fill out all fields.");
-    //   return;
-    // }
-
-    // if (!validator.isEmail(email)) {
-        
-    //   setFormError("Please use valid email address.");
-    //   return;
-    // }
-
-    // try {
-    //   //attempt to register user
-    //   await register(email, password);
-    // } catch (error) {
-    //   console.error("Error during registration:", error);
-    // }
-
   }
 
   // Automatically clear formError after 5 seconds
