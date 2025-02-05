@@ -14,20 +14,18 @@ const registerUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // let newError = "";
-
     setFormError("");
 
     if (!email || !password) {
-      setFormError = "Please fill out all fields.";
-      return;
-    } 
-
-    if (!validator.isEmail(email)) {
-      setFormError += (newError ? " " : "") + "Please use a valid email address.";
+      setFormError("Please fill out all fields.");
       return;
     }
 
+    if (!validator.isEmail(email)) {
+      setFormError("Please use a valid email address.");
+      return;
+    }
+    
     // Attempt to register user
     try {
       await register(email, password);
