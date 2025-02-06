@@ -7,8 +7,8 @@ import { useAuthContext } from "./useAuthContext";
     const { dispatch } = useAuthContext();
 
     const register = async (email, password) => { 
-            setIsLoading(true);
-            setError(null); 
+              setIsLoading(true);
+              setError(null); 
 
               const response = await fetch("http://localhost:4000/register", {
               method: "POST",
@@ -22,7 +22,6 @@ import { useAuthContext } from "./useAuthContext";
               setError(json.error); // Set error from JSON
               setIsLoading(false);
               dispatch({ type: "LOGOUT" });
-
             } 
             if (response.ok) {
               //save user to local storage
