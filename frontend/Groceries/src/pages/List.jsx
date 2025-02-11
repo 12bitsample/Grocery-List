@@ -87,7 +87,7 @@ const List = () => {
                                             <td className="py-2">{grocery.amount}</td>
                                             <td className="py-2">{grocery.item}</td>
                                             <td className="py-2">
-                                                <button type="button" className="btn btn-success p-1" onClick={() => handleDeleteClick(grocery)}>
+                                                <button type="button" className="btn bg-success btn-success p-1" onClick={() => handleDeleteClick(grocery)}>
                                                     Delete
                                                 </button>
                                             </td>

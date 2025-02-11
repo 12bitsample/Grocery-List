@@ -3117,8 +3117,8 @@ textarea.form-control-lg {
 }
 
 .btn-success {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #4caf50;
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: #03f30b;
   --bs-btn-border-color: #4caf50;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #419544;
