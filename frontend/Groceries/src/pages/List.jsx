@@ -70,7 +70,7 @@ const List = () => {
 
                     <div className="card border mb-3">
                         <div className="card-header py-3 text-black"><h3>Grocery List </h3></div>
-                        <div className="card-body w-100  py-5  h-75 d-flex row mx-auto justify-content-center">
+                        <div className="card-body w-100 py-2 h-75 d-flex row mx-auto justify-content-center">
                             
                             <table className="table table-hover w-75">
                                 <thead className="border">
@@ -87,7 +87,7 @@ const List = () => {
                                             <td className="py-2">{grocery.amount}</td>
                                             <td className="py-2">{grocery.item}</td>
                                             <td className="py-2">
-                                                <button type="button" className="btn bg-success btn-success p-1" onClick={() => handleDeleteClick(grocery)}>
+                                                <button type="button" className="btn btn-success p-1" onClick={() => handleDeleteClick(grocery)}>
                                                     Delete
                                                 </button>
                                             </td>
