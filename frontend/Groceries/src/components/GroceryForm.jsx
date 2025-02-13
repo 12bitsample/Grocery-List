@@ -10,18 +10,30 @@ const GroceryForm = () => {
     const [ amount, setAmount ] = useState("");
     const [ error, setError ] = useState(null);
     const { dispatch } = useContext(GroceriesContext);
-    const [emptyFields, setEmptyFields] = useState([]);
     const { user } = useAuthContext();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const groceries = { item, amount };
-
         if (!user) {
             setError("You must be logged in.");
             return;
         }
+
+        if (!item || !amount) {
+            return setError("Please fill out all fields.");
+        }
+      
+        if (!amount) {
+            return setError("You must enter an amount value for the item.");
+        }
+      
+        // Check that the item is not a number:
+        if (!isNaN(item)) {
+        return setError("Item cannot be a number value.");
+        }
+
+        const groceries = { item, amount };
 
         const response = await fetch("http://localhost:4000/api/groceries/", {
             method: "POST",
