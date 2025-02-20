@@ -16,8 +16,8 @@ export default function Home() {
       <div className="container-fluid">
         {
           user ? (
-            <div className="card border-secondary p-4 w-50">
-              <h4 className="card-title mx-2">Why did you come back here?</h4>
+            <div className="card-title text-black bg-white border-secondary p-4 w-50">
+              <h4 className=" card-text-mx-2">Why did you come back here?</h4>
               <div className="card-body p-2">
                 <p className="card-text">No real reason to head back here, would you like to logout? </p>
               </div>
